@@ -3,14 +3,16 @@ package main
 import "fmt"
 
 func mergeSort(q []int, l, r int) {
+	// 数组归零的过程
 	if l >= r {
 		return
 	}
 	mid := (l + r) >> 1
 	mergeSort(q, l, mid)
 	mergeSort(q, mid+1, r)
-
+	// 数组合并的过程
 	var k, i, j = 0, l, mid+1
+	// 需要额外空间o(n)
 	tmp := make([]int, r-l+1)
 	for ; i <= mid && j <= r; k++ {
 		if q[i] < q[j] {

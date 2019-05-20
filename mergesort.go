@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func mergeSort(q []int, l, r int) {
 	// 数组归零的过程
@@ -37,5 +40,6 @@ func mergeSort(q []int, l, r int) {
 func main() {
 	a := []int{5, 2, 3, 7, 6, 9, 0, 8, 4, 1}
 	mergeSort(a, 0, len(a)-1)
+	sort.Ints()
 	fmt.Print(a)
 }

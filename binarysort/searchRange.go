@@ -1,7 +1,5 @@
 package binarysort
 
-import "fmt"
-
 // 此问题用到两种二分模板来寻找边界
 func searchRange(nums []int, target int) []int {
 	// 此函数接收一个array和一个target, 返回target在array中的起始和终止index值，
@@ -34,9 +32,4 @@ func searchRange(nums []int, target int) []int {
 		end := r
 		return []int{start, end}
 	}
-}
-
-func main() {
-	a := searchRange([]int{2, 2, 2, 2, 2}, 2)
-	fmt.Print(a)
 }

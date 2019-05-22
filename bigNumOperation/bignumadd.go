@@ -1,4 +1,4 @@
-package main
+package bigNumOperation
 
 import "fmt"
 
@@ -21,7 +21,7 @@ func bigNumAdd(a, b []int) []int {
 	return res
 }
 
-func main() {
+func callAdd() {
 	a := "89"
 	b := "31"
 	arrA, arrB := []int{}, []int{}

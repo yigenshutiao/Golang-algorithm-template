@@ -1,4 +1,4 @@
-package main
+package bigNumOperation
 
 import "fmt"
 
@@ -22,7 +22,7 @@ func bigNumSub(a, b []int) []int {
 		if i < len(b) {
 			t -= b[i]
 		}
-		res = append(res, (t+10)%10)
+		res = append(res, (t+10)%10) // (t+10)%10 概括了 k>0和k<0这两种情况
 		if t < 0 {
 			t = 1
 		} else {
@@ -30,14 +30,14 @@ func bigNumSub(a, b []int) []int {
 		}
 	}
 	for len(res) > 1 && res[len(res)-1] == 0 {
-		res = res[:len(res)-1]
+		res = res[:len(res)-1] // 去掉答案中的前导0 123-120 == 003 => 3
 	}
 	return res
 }
 
-func main() {
-	a := "0"
-	b := "0"
+func CallSub() {
+	a := "123"
+	b := "120"
 	arrA, arrB := []int{}, []int{}
 	for i := len(a) - 1; i >= 0; i-- {
 		arrA = append(arrA, int(a[i])-'0')

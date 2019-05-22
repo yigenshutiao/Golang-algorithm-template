@@ -29,10 +29,8 @@ func quickSort(q []int, l, r int) {
 	quickSort(q, j+1, r)
 }
 
-
 func main() {
 	a := []int{5, 2, 3, 7, 6, 9, 0, 8, 4, 1}
 	quickSort(a, 0, len(a)-1)
 	fmt.Print(a)
 }
-

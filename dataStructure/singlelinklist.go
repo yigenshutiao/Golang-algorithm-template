@@ -1,10 +1,10 @@
-package main
+package dataStructure
 
 import "fmt"
 
 var (
-	head, idx int                 // head 头结点下标  idx 当前用到的点
-	e         = make(map[int]int) // val[i] 表示节点i的值
+	head, idx int                 // head 头结点下标  index 当前用到的点
+	e         = make(map[int]int) // e[i] 表示节点i的值
 	ne        = make(map[int]int) // ne[i] 表示节点i的next指针是多少
 )
 
@@ -46,19 +46,19 @@ func traverse(head int) []int {
 
 func main() {
 	inits()
-	fmt.Println("head:", head, "idx:", idx, "e:", e, "ne:", ne)
+	fmt.Println("head:", head, "index:", idx, "e:", e, "ne:", ne)
 
 	addToHead(5)
-	fmt.Println("head:", head, "idx:", idx, "e:", e, "ne:", ne)
+	fmt.Println("head:", head, "index:", idx, "e:", e, "ne:", ne)
 
 	add(0, 6)
-	fmt.Println("head:", head, "idx:", idx, "e:", e, "ne:", ne)
+	fmt.Println("head:", head, "index:", idx, "e:", e, "ne:", ne)
 
 	add(1, 4)
-	fmt.Println("head:", head, "idx:", idx, "e:", e, "ne:", ne)
+	fmt.Println("head:", head, "index:", idx, "e:", e, "ne:", ne)
 
 	remove(0)
-	fmt.Println("head:", head, "idx:", idx, "e:", e, "ne:", ne)
+	fmt.Println("head:", head, "index:", idx, "e:", e, "ne:", ne)
 
 	linklist := traverse(head)
 	fmt.Println(linklist)

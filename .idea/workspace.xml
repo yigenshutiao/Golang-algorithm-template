@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d76da8e1-61ed-4b39-b91b-fbaf8c7023e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/binaryOperation/lowbit.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dec2bin.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sectionMerge.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/singlelinklist.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,28 +14,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/binarysort/searchRange.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/doublePointer/getChar.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sectionMerge.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+            <state relative-caret-position="1007">
+              <caret line="53" column="20" lean-forward="true" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
               <folding>
                 <element signature="e#14#39#0" expanded="true" />
               </folding>
@@ -45,20 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/doublePointer/maxSubSeq.go">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/singlelinklist.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dec2bin.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="522">
+              <caret line="61" column="1" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -117,6 +88,8 @@
         <option value="$PROJECT_DIR$/dec2bin.go" />
         <option value="$PROJECT_DIR$/lowbit.go" />
         <option value="$PROJECT_DIR$/sectionMerge.go" />
+        <option value="$PROJECT_DIR$/linklist.go" />
+        <option value="$PROJECT_DIR$/singlelinklist.go" />
       </list>
     </option>
   </component>
@@ -137,11 +110,6 @@
             <path>
               <item name="Go-Algorithm-Template" type="b2602c69:ProjectViewProjectNode" />
               <item name="Go-Algorithm-Template" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Go-Algorithm-Template" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Go-Algorithm-Template" type="462c0819:PsiDirectoryNode" />
-              <item name="doublePointer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -182,7 +150,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build sectionMerge.go">
+  <component name="RunManager" selected="Go Build.go build singlelinklist.go">
     <configuration name="go build dec2bin.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="Go-Algorithm-Template" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -191,11 +159,11 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
-    <configuration name="go build getChar.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build linklist.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="Go-Algorithm-Template" />
       <working_directory value="$PROJECT_DIR$/" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/getChar.go" />
+      <filePath value="$PROJECT_DIR$/linklist.go" />
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
@@ -204,14 +172,6 @@
       <working_directory value="$PROJECT_DIR$/" />
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/lowbit.go" />
-      <directory value="$PROJECT_DIR$/" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build maxSubSeq.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="Go-Algorithm-Template" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/maxSubSeq.go" />
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
@@ -232,34 +192,42 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+    <configuration name="go build singlelinklist.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Go-Algorithm-Template" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/singlelinklist.go" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Go Build.go build quicksort.go" />
-      <item itemvalue="Go Build.go build getChar.go" />
-      <item itemvalue="Go Build.go build maxSubSeq.go" />
       <item itemvalue="Go Build.go build dec2bin.go" />
       <item itemvalue="Go Build.go build lowbit.go" />
       <item itemvalue="Go Build.go build sectionMerge.go" />
+      <item itemvalue="Go Build.go build singlelinklist.go" />
+      <item itemvalue="Go Build.go build linklist.go" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build singlelinklist.go" />
+        <item itemvalue="Go Build.go build linklist.go" />
+        <item itemvalue="Go Build.go build dec2bin.go" />
         <item itemvalue="Go Build.go build sectionMerge.go" />
         <item itemvalue="Go Build.go build lowbit.go" />
-        <item itemvalue="Go Build.go build dec2bin.go" />
-        <item itemvalue="Go Build.go build maxSubSeq.go" />
-        <item itemvalue="Go Build.go build getChar.go" />
       </list>
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1224" height="777" extended-state="6" />
+    <frame x="0" y="23" width="1229" height="777" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18866329" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18786858" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.29635036" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.329927" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29635036" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.35766423" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -281,17 +249,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/doublePointer/maxSubSeq.go</url>
-          <line>18</line>
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/dec2bin.go</url>
-          <line>8</line>
-          <properties />
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/sectionMerge.go</url>
           <line>25</line>
@@ -463,13 +420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/go/src/runtime/panic.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="587" selection-start-line="587" selection-end-line="587" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sort/quicksort.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -521,13 +471,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/binarysort/searchRange.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/binaryOperation/lowbit.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -554,8 +497,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/doublePointer/maxSubSeq.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        <state relative-caret-position="209">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -566,13 +509,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/binarysort/searchRange.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sectionMerge.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        <state relative-caret-position="1007">
+          <caret line="53" column="20" lean-forward="true" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
           <folding>
             <element signature="e#14#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/go/src/runtime/panic.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="587" selection-start-line="587" selection-end-line="587" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linklist.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="23" lean-forward="true" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/singlelinklist.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="61" column="1" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
         </state>
       </provider>
     </entry>

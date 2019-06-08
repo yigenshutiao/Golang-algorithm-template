@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d76da8e1-61ed-4b39-b91b-fbaf8c7023e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dataStructure/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataStructure/doublelinklist.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stack.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataStructure/stack.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/singlelinklist.go" beforeDir="false" afterPath="$PROJECT_DIR$/dataStructure/singlelinklist.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stack.go" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,10 +15,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/stack.go">
+        <entry file="file://$PROJECT_DIR$/dataStructure/stack.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="209">
+              <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -86,10 +84,11 @@
         <option value="$PROJECT_DIR$/dataStructure/doublelinklist.go" />
         <option value="$PROJECT_DIR$/dataStructure/README.md" />
         <option value="$PROJECT_DIR$/stack.go" />
+        <option value="$PROJECT_DIR$/dataStructure/stack.go" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="23" />
     <option name="width" value="1229" />
     <option name="height" value="755" />
@@ -106,11 +105,6 @@
             <path>
               <item name="Go-Algorithm-Template" type="b2602c69:ProjectViewProjectNode" />
               <item name="Go-Algorithm-Template" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Go-Algorithm-Template" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Go-Algorithm-Template" type="462c0819:PsiDirectoryNode" />
-              <item name="dataStructure" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Go-Algorithm-Template" type="b2602c69:ProjectViewProjectNode" />
@@ -225,15 +219,15 @@
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1229" height="755" extended-state="0" />
+    <frame x="0" y="23" width="1229" height="755" extended-state="1" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18786858" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32880846" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.29635036" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.35766423" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32277527" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.35746607" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -518,20 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataStructure/doublelinklist.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataStructure/singlelinklist.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/doublePointer/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -569,10 +549,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stack.go">
+    <entry file="file://$PROJECT_DIR$/dataStructure/doublelinklist.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="266">
+          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataStructure/singlelinklist.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataStructure/stack.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
         </state>
       </provider>
     </entry>

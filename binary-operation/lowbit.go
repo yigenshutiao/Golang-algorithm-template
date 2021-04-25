@@ -1,4 +1,4 @@
-package binaryOperation
+package binary_operation
 
 import "fmt"
 

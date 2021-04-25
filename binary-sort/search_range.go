@@ -1,4 +1,4 @@
-package binarysort
+package binary_sort
 
 // 此问题用到两种二分模板来寻找边界
 func searchRange(nums []int, target int) []int {

@@ -1,4 +1,4 @@
-package bigNumOperation
+package big_num_operation
 
 import (
 	"fmt"

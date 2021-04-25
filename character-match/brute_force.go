@@ -1,4 +1,4 @@
-package characterMatch
+package character_match
 
 func bf1(s, pattern string) int {
 	if len(s) == 0 || len(pattern) == 0 || len(s) < len(pattern) {

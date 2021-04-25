@@ -1,4 +1,4 @@
-package characterMatch
+package character_match
 
 import "fmt"
 

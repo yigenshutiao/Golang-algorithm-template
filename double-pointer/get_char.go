@@ -1,4 +1,4 @@
-package doublePointer
+package double_pointer
 
 import "fmt"
 

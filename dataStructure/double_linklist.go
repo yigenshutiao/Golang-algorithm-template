@@ -4,9 +4,9 @@ import "fmt"
 
 var (
 	index int
-	val    = make(map[int]int)
-	l        = make(map[int]int) //存左指针
-	r        = make(map[int]int) //存右指针
+	val   = make(map[int]int)
+	l     = make(map[int]int) //存左指针
+	r     = make(map[int]int) //存右指针
 )
 
 func init() {

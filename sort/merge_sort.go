@@ -4,40 +4,47 @@ import (
 	"fmt"
 )
 
-func mergeSort(q []int, l, r int) {
-	// 数组归零的过程
-	if l >= r {
+func mergeSort(arr []int) {
+	if len(arr) <= 1 {
 		return
 	}
-	mid := (l + r) >> 1
-	mergeSort(q, l, mid)
-	mergeSort(q, mid+1, r)
-	// 数组合并的过程
-	var k, i, j = 0, l, mid + 1
-	// 需要额外空间o(n)
-	tmp := make([]int, r-l+1)
-	for ; i <= mid && j <= r; k++ {
-		if q[i] < q[j] {
-			tmp[k] = q[i]
-			i++
-		} else {
-			tmp[k] = q[j]
-			j++
+
+	left, right := arr[:len(arr)/2], arr[len(arr)/2:]
+
+	mergeSort(left)
+	mergeSort(right)
+
+	// merge
+	x, y, idx, merged := 0, 0, 0, make([]int, len(arr))
+	for x < len(left) && y < len(right) {
+		if left[x] < right[y] {
+			merged[idx] = left[x]
+			x++
+			idx++
+			continue
+		}
+		if left[x] >= right[y] {
+			merged[idx] = right[y]
+			y++
+			idx++
+			continue
 		}
 	}
-	for ; i <= mid; i++ {
-		tmp[k] = q[i]
-		k++
+	for x < len(left) {
+		merged[idx] = left[x]
+		idx++
+		x++
 	}
-	for ; j <= r; j++ {
-		tmp[k] = q[j]
-		k++
+	for y < len(right) {
+		merged[idx] = right[y]
+		idx++
+		y++
 	}
-	copy(q[l:r+1], tmp)
+	copy(arr, merged)
 }
 
 func main() {
 	a := []int{5, 2, 3, 7, 6, 9, 0, 8, 4, 1}
-	mergeSort(a, 0, len(a)-1)
+	mergeSort(a)
 	fmt.Print(a)
 }

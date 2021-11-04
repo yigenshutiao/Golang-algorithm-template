@@ -9,6 +9,7 @@ func mergeSort(arr []int) {
 		return
 	}
 
+	// 分成 左、右边 两个序列，注意比较元素都用这个
 	left, right := arr[:len(arr)/2], arr[len(arr)/2:]
 
 	mergeSort(left)

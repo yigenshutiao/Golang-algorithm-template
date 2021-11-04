@@ -4,40 +4,52 @@ import (
 	"fmt"
 )
 
-func mergeSort(q []int, l, r int) {
-	// 数组归零的过程
-	if l >= r { // 元素个数<=1,返回
+func mergeSort(arr []int) {
+	if len(arr) <= 1 {
 		return
 	}
-	mid := (l + r) >> 1
-	mergeSort(q, l, mid)
-	mergeSort(q, mid+1, r)
-	// 数组合并的过程
-	var k, i, j = 0, l, mid + 1
-	// 需要额外空间o(n)
-	tmp := make([]int, r-l+1)
-	for ; i <= mid && j <= r; k++ {
-		if q[i] < q[j] {
-			tmp[k] = q[i]
-			i++
+
+	// 分成 左、右边 两个序列，注意比较元素都用这个
+	left, right := arr[:len(arr)/2], arr[len(arr)/2:]
+
+	mergeSort(left)
+	mergeSort(right)
+
+	// 上面的代码，把数组分成独立的单元，每个单元个数为1
+	// ---------- 以这里为分界线，把代码分成两块，上面的归并的拆分过程，下面是归并的合并过程 --------------
+	// 下面是并的过程，把两个分开的序列，合成一个有序的序列
+
+	// x是左序列的游标, y是右序列的游标, idx是merged数组的游标, merged 是本次合并后的res存放处
+	x, y, idx, merged := 0, 0, 0, make([]int, len(arr))
+	for x < len(left) && y < len(right) {
+		if left[x] < right[y] {
+			merged[idx] = left[x]
+			x++
+			idx++
 		} else {
-			tmp[k] = q[j]
-			j++
+			merged[idx] = right[y]
+			y++
+			idx++
 		}
 	}
-	for ; i <= mid; i++ {
-		tmp[k] = q[i]
-		k++
+	// 把左序列剩下的元素放到merged中
+	for x < len(left) {
+		merged[idx] = left[x]
+		idx++
+		x++
 	}
-	for ; j <= r; j++ {
-		tmp[k] = q[j]
-		k++
+	// 把右序列剩下的元素放到merged中
+	for y < len(right) {
+		merged[idx] = right[y]
+		idx++
+		y++
 	}
-	copy(q[l:r+1], tmp)
+	copy(arr, merged)
 }
 
 func main() {
-	a := []int{5, 2, 3, 7, 6, 9, 0, 8, 4, 1}
-	mergeSort(a, 0, len(a)-1)
+	//a := []int{5, 2, 3, 7, 6, 9, 0, 8, 4, 1}
+	a := []int{4, 3, 2, 1}
+	mergeSort(a)
 	fmt.Print(a)
 }

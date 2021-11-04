@@ -6,7 +6,7 @@ import (
 
 func mergeSort(q []int, l, r int) {
 	// 数组归零的过程
-	if l >= r {
+	if l >= r { // 元素个数<=1,返回
 		return
 	}
 	mid := (l + r) >> 1

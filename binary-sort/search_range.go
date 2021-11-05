@@ -1,29 +1,30 @@
-package binary_sort
+package main
+
+import "fmt"
 
 // 此问题用到两种二分模板来寻找边界
-func searchRange(nums []int, target int) []int {
-	// 此函数接收一个array和一个target, 返回target在array中的起始和终止index值，
-	// 若找不到，返回[-1,-1]
-	if len(nums) == 0 {
+// 题目，在一个单调递增的序列里找到一个数字的起始、终止坐标，找不到返回[-1,-1]
+func searchRange(num []int, target int) []int {
+	if len(num) == 0 {
 		return []int{-1, -1}
 	}
-	l, r := 0, len(nums)-1
+	l, r := 0, len(num)-1
 	for l < r {
 		mid := (l + r) >> 1
-		if nums[mid] >= target {
+		if num[mid] >= target {
 			r = mid
 		} else {
 			l = mid + 1
 		}
 	}
-	if nums[l] != target {
+	if num[l] != target {
 		return []int{-1, -1}
 	} else {
 		start := l
-		l, r := 0, len(nums)-1
+		l, r := 0, len(num)-1
 		for l < r {
 			mid := (l + r + 1) >> 1
-			if nums[mid] <= target {
+			if num[mid] <= target {
 				l = mid
 			} else {
 				r = mid - 1
@@ -32,4 +33,8 @@ func searchRange(nums []int, target int) []int {
 		end := r
 		return []int{start, end}
 	}
+}
+
+func main() {
+	fmt.Println(searchRange([]int{1, 2, 4, 4, 5, 8, 9}, 7))
 }

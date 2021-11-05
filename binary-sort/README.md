@@ -10,6 +10,31 @@
 
 二分模板分为整数模板和浮点数模板,其中整数模板有两种
 
+整数二分模板：
+```go
+// 模板一
+l, r := 0, len(nums)-1
+for l < r {
+    mid := (l + r) >> 1
+    if nums[mid] >= target {
+        r = mid
+    } else {
+        l = mid + 1
+    }
+}
+
+// 模板二
+l, r := 0, len(nums)-1
+for l < r {
+    mid := (l + r + 1) >> 1
+    if nums[mid] <= target {
+        l = mid
+	} else {
+        r = mid - 1
+    }  
+}
+```
+
 
 相关LeetCode题:
 ```
@@ -17,3 +42,4 @@
  162. 寻找峰值 
  896. 单调数列
 ```
+

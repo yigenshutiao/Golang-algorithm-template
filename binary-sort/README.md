@@ -12,26 +12,32 @@
 
 整数二分模板：
 ```go
-// 模板一
-l, r := 0, len(nums)-1
-for l < r {
-    mid := (l + r) >> 1
-    if nums[mid] >= target {
-        r = mid
-    } else {
-        l = mid + 1
-    }
+func check(x int) bool {} // 检查x是否满足某种性质
+
+// 区间[l, r]被划分成[l, mid]和[mid + 1, r]时使用：
+func bsearch(l, r int) int {
+	for l < r {
+		mid := (l+r) >> 1
+		if check(mid) {  // check()判断mid是否满足性质
+		    r = mid	
+        } else {
+            l = mid + 1	
+        }
+	}
+	return l
 }
 
-// 模板二
-l, r := 0, len(nums)-1
-for l < r {
-    mid := (l + r + 1) >> 1
-    if nums[mid] <= target {
-        l = mid
-	} else {
-        r = mid - 1
-    }  
+// 区间[l, r]被划分成[l, mid - 1]和[mid, r]时使用：
+func bsearch(l, r int) int {
+    for l < r {
+        mid := (l+r+1) >> 1
+        if check(mid) {  // check()判断mid是否满足性质
+            l = mid
+        } else {
+            r = mid - 1
+        }
+    }
+    return l
 }
 ```
 

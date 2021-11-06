@@ -49,7 +49,7 @@ func bsearch(l, r int) int {
 func check(x float64) bool
 
 func binarySearch(l, r float64) float64 {
-    eps := 1e-6 // eps 表示精度，取决于题目对精度的要求
+    eps := 1e-6 // eps 表示精度，取决于题目对精度的要求, 如果是只取整数部分，eps = 1
     for (r - l) > eps {
         mid := (l + r) / 2
         if check(mid) {

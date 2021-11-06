@@ -64,7 +64,9 @@ func binarySearch(l, r float64) float64 {
 
 相关LeetCode题:
 ```
+浮点数二分
  69. 求x的平方根 
+整数二分
  162. 寻找峰值
 ```
 

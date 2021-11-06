@@ -63,10 +63,18 @@ func binarySearch(l, r float64) float64 {
 ```
 
 相关LeetCode题:
-```
-浮点数二分
- 69. 求x的平方根 
-整数二分
- 162. 寻找峰值
-```
+
+> 整数二分
+> 162.寻找峰值
+> 
+> 浮点数二分
+> 69.求x的平方根
+
+
+相关acwing题：
+> 整数二分：
+> 789. 数的范围 https://www.acwing.com/activity/content/code/content/41409
+> 
+> 浮点数二分：
+> 790. 数的三次方根 https://www.acwing.com/problem/content/792/
 

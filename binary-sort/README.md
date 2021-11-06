@@ -43,11 +43,28 @@ func bsearch(l, r int) int {
 }
 ```
 
+```go
+// 浮点数二分模板
+// check 检查x是否满足某种性质
+func check(x float64) bool
+
+func bearchSearch(l,r float64) float64 {
+	eps := 1e-6 // eps 表示精度，取决于题目对精度的要求
+	for (r - l) > eps {
+	    mid = (l+r)/2
+		if 	check(mid) {
+		    r = mid	
+        } else {
+        	l = mid
+        }
+    }
+    return l
+}
+```
 
 相关LeetCode题:
 ```
  69. 求x的平方根 
- 162. 寻找峰值 
- 896. 单调数列
+ 162. 寻找峰值
 ```
 

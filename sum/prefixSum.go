@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func prefixSum(a []int, l, r int) int {
-	sum := []int{}
+	var sum []int
 	sum = append(sum, 0) // 注意不能写成 sum[0]= 0
 	for i := 1; i < len(a); i++ {
 		sum = append(sum, sum[i-1]+a[i])

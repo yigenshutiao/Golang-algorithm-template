@@ -1,4 +1,4 @@
-package dfs
+package main
 
 func dfs(y int, n int, pic []string, res *[][]string, col, bias, rbias []bool) {
 	if y == n {

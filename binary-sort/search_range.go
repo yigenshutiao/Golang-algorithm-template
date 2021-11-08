@@ -42,5 +42,5 @@ func searchRange(num []int, target int) []int {
 }
 
 func main() {
-	fmt.Println(BinarySearch([]int{1, 2, 4, 4, 5, 8, 9}, 4))
+	fmt.Println(searchRange([]int{1, 2, 4, 4, 5, 8, 9}, 4))
 }

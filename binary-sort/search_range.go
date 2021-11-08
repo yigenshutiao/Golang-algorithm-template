@@ -2,9 +2,9 @@ package main
 
 import "fmt"
 
-// BinarySearch 此问题用到两种二分模板来寻找边界
+// 此问题用到两种二分模板来寻找边界
 // 题目，在一个单调递增的序列里找到一个数字的起始、终止坐标，找不到返回[-1,-1]
-func BinarySearch(num []int, target int) []int {
+func searchRange(num []int, target int) []int {
 	if len(num) == 0 {
 		return []int{-1, -1}
 	}

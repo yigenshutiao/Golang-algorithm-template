@@ -7,6 +7,20 @@ DFS(Depth First Search)意思是深度优先搜索，在寻找**所有可能性*
 2. 还可以做的选择
 3. 回溯的终止条件
 
+#### dfs框架
+
+```python
+result = []
+def dfs(路径, 选择列表):
+    if 满足结束条件:
+        result.add(路径)
+        return
+    
+    for 选择 in 选择列表:
+        做选择
+        backtrack(路径, 选择列表)
+        撤销选择
+```
 
 
 ### LeetCode相关题目

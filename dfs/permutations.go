@@ -23,8 +23,8 @@ func permuteDfs(cur int, nums []int, used []bool, tmp []int, res *[][]int) {
 	}
 
 	for i := 0; i < len(nums); i++ {
-		if !used[i] {
-			tmp[cur] = nums[i]
+		if !used[i] { // 还可以选的元素
+			tmp[cur] = nums[i] // 选择这个元素
 			used[i] = true
 			permuteDfs(cur+1, nums, used, tmp, res)
 			used[i] = false

@@ -1,20 +1,18 @@
 package main
 
-import "github.com/yigenshutiao/Golang-algorithm-template/util"
+import (
+	"fmt"
+	"github.com/yigenshutiao/Golang-algorithm-template/util"
+)
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
-func bfs(root *TreeNode, cur int, res *int) {
+func dfs(root *util.TreeNode, cur int, res *int) {
 	if root == nil {
 		return
 	}
 
 	cur += 1
 
+	// 找到有效节点的终止条件
 	if root.Left == nil && root.Right == nil {
 		if cur < *res {
 			*res = cur
@@ -22,21 +20,22 @@ func bfs(root *TreeNode, cur int, res *int) {
 		return
 	}
 
-	bfs(root.Left, cur, res)
-	bfs(root.Right, cur, res)
+	dfs(root.Left, cur, res)
+	dfs(root.Right, cur, res)
 }
 
-func minDepth(root *TreeNode) int {
+func minDepth(root *util.TreeNode) int {
 	if root == nil {
 		return 0
 	}
 
 	res := 99999999
-	bfs(root, 0, &res)
+	dfs(root, 0, &res)
 
 	return res
 }
 
 func main() {
-	util.IntSlice2TreeNode()
+	root := util.IntSlice2TreeNode([]int{3, 9, 20, 15, 7})
+	fmt.Println(minDepth(root))
 }

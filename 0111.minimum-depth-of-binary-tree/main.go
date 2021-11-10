@@ -45,8 +45,10 @@ func minDepthBfs(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
-	queue := []*TreeNode{}
-	count := []int{}
+
+	var queue []*TreeNode
+	var count []int
+
 	queue = append(queue, root)
 	count = append(count, 1)
 	for i := 0; i < len(queue); i++ {

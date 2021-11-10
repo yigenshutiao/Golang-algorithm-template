@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func mySqrt(x int) int {
 	if x <= 1 {
 		return x
@@ -17,5 +19,5 @@ func mySqrt(x int) int {
 }
 
 func main() {
-
+	fmt.Println(mySqrt(8))
 }

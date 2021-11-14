@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func openLock(deadends []string, target string) int {
 	const start = "0000"
 	if target == start {
@@ -56,5 +58,5 @@ func openLock(deadends []string, target string) int {
 }
 
 func main() {
-
+	fmt.Println(openLock([]string{"1234"}, "2222"))
 }

@@ -1,6 +1,6 @@
 package _160_intersection_of_two_linked_lists
 
-import "git.xiaojukeji.com/gulfstream/Golang-algorithm-template/util"
+import "github.com/yigenshutiao/Golang-algorithm-template/util"
 
 type ListNode = util.ListNode
 

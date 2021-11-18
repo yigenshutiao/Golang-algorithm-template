@@ -18,15 +18,15 @@ func check(x int) bool
 
 // 区间[l, r]被划分成[l, mid]和[mid + 1, r]时使用：
 func bsearch(l, r int) int {
-	for l < r {
-		mid := (l+r) >> 1
-		if check(mid) {  // check()判断mid是否满足性质
-		    r = mid	
+    for l < r {
+        mid := (l+r) >> 1
+        if check(mid) {  // check()判断mid是否满足性质
+            r = mid
         } else {
-            l = mid + 1	
+            l = mid + 1
         }
-	}
-	return l
+    }
+    return l
 }
 
 // 区间[l, r]被划分成[l, mid - 1]和[mid, r]时使用：

@@ -36,7 +36,7 @@ func minWindow(s string, t string) string {
 				// 更新滑动窗口长度
 				lens = r - l + 1
 				// 把坐标也更新
-				ansL, ansR = l, l+lens
+				ansL, ansR = l, r
 			}
 			// 在滑动窗口中，若左下标存在于目标值中，把滑动窗口对应的值减1
 			// 可以优化为：

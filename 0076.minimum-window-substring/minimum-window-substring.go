@@ -18,17 +18,14 @@ func minWindow(s string, t string) string {
 		ori[t[i]]++
 	}
 
-	sLen := len(s)
 	// lens是滑动窗口的长度，默认取个较大值
 	lens := 9999999
 	ansL, ansR := -1, -1
 
-	for l, r := 0, 0; r < sLen; r++ {
+	for l, r := 0, 0; r < len(s); r++ {
 		// 右窗口需小于源字符串，且目标中含有这个字符
 		// 可以优化为：if r < sLen && ori[s[r]] > 0 {
-		if r < sLen {
-			cnt[s[r]]++
-		}
+		cnt[s[r]]++
 		// 滑动窗口长度需大于等于0
 		for check(ori, cnt) && l <= r {
 
@@ -36,7 +33,7 @@ func minWindow(s string, t string) string {
 				// 更新滑动窗口长度
 				lens = r - l + 1
 				// 把坐标也更新
-				ansL, ansR = l, r
+				ansL, ansR = l, r+1
 			}
 			// 在滑动窗口中，若左下标存在于目标值中，把滑动窗口对应的值减1
 			// 可以优化为：

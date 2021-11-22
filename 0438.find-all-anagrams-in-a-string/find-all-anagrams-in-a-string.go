@@ -4,41 +4,49 @@ package _438_find_all_anagrams_in_a_string
 //输出: [0,6]
 
 func findAnagrams(s string, p string) []int {
-	pl := len(p)
-	sl := len(s)
-	if pl > sl {
+
+	if len(s) < len(p) {
 		return nil
 	}
+
+	source := map[byte]int{}
+	for i := 0; i < len(p); i++ {
+		source[p[i]]++
+	}
+
 	var result []int
 
-	m := make(map[byte]int)
-	for i := 0; i < pl; i++ {
-		m[p[i]]++
+	target := map[byte]int{}
+
+	left, right := 0, len(p)-1
+
+	for i := left; i <= right; i++ {
+		target[s[i]]++
 	}
 
-	for j := 0; j < pl; j++ {
-		m[s[j]]--
+	for right < len(s) {
+		if check(source, target) {
+			result = append(result, left)
+		}
+
+		target[s[left]]--
+		left++
+
+		right++
+		if right == len(s) {
+			break
+		}
+		target[s[right]]++
 	}
 
-	for i := 0; i < sl-pl+1; i++ {
-
-		flag := 0
-
-		if i > 0 {
-			m[s[i-1]]++
-			m[s[i+pl-1]]--
-		}
-
-		for _, v := range m {
-			if v != 0 {
-				flag = 1
-				break
-			}
-		}
-		if flag == 0 {
-			result = append(result, i)
-		}
-
-	}
 	return result
+}
+
+func check(source, target map[byte]int) bool {
+	for k, v := range target {
+		if source[k] != v {
+			return false
+		}
+	}
+	return true
 }

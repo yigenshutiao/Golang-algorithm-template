@@ -13,35 +13,41 @@
 
 整数二分模板：
 ```go
-// 检查x是否满足某种性质
-func check(x int) bool
+// 寻找左边界的二分查找
+// 返回l，代表在nums中，有l个元素小于target
 
-// 区间[l, r]被划分成[l, mid]和[mid + 1, r]时使用：
-func bsearch(l, r int) int {
-	for l < r {
-		mid := (l+r) >> 1
-		if check(mid) {  // check()判断mid是否满足性质
-		    r = mid	
+func bsearch(nums []int,target int) int {
+    l, r := 0, len(num)-1
+    // 终止条件 l == r
+    for l < r {
+        mid := (l + r) >> 1
+        if num[mid] >= target {
+            r = mid
         } else {
-            l = mid + 1	
+            l = mid + 1
         }
-	}
-	return l
+    }
+    return l
 }
 
-// 区间[l, r]被划分成[l, mid - 1]和[mid, r]时使用：
-func bsearch(l, r int) int {
+// 寻找右边界的二分查找
+func bsearch(num []int, target int) int {
+    l, r := 0, len(num)-1
     for l < r {
-        mid := (l+r+1) >> 1
-        if check(mid) {  // check()判断mid是否满足性质
+    // 当 l = r - 1  时，mid 若不加1，则等于l，区间为[l, r], 没有变化, 造成死循环
+    // 只有 +1,才能保证mid = r，跳出终止条件
+        mid := (l + r + 1) >> 1
+        if num[mid] <= target {
             l = mid
         } else {
             r = mid - 1
         }
     }
-    return l
+
+    return r
 }
 ```
+
 
 ```go
 // 浮点数二分模板
@@ -74,7 +80,7 @@ func binarySearch(l, r float64) float64 {
 相关acwing题：
 > 整数二分：
 > 789. 数的范围 https://www.acwing.com/activity/content/code/content/41409
-> 
+
 > 浮点数二分：
 > 790. 数的三次方根 https://www.acwing.com/problem/content/792/
 

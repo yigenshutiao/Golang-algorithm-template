@@ -16,8 +16,8 @@ func findAnagrams(s string, p string) []int {
 		m[p[i]]++
 	}
 
-	for i1 := 0; i1 < pl; i1++ {
-		m[s[i1]]--
+	for j := 0; j < pl; j++ {
+		m[s[j]]--
 	}
 
 	for i := 0; i < sl-pl+1; i++ {

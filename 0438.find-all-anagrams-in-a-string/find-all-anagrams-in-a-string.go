@@ -1,6 +1,6 @@
 package _438_find_all_anagrams_in_a_string
 
-//输入: s = "cbae", p = "abc"
+//输入: s = "cbaebabacd", p = "abc"
 //输出: [0,6]
 
 func findAnagrams(s string, p string) []int {

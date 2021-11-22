@@ -3,43 +3,23 @@ package _003_longest_substring_without_repeating_characters
 // 输入: s = "abcabcbb"
 // 输出: 3
 
-func lengthOfLongestSubstrings(s string) int {
-
-	location := [256]int{}
-	for i := range location {
-		location[i] = -1
-	}
-
-	maxLen, left := 0, 0
-
-	for i := 0; i < len(s); i++ {
-		if location[s[i]] >= left {
-			left = location[s[i]] + 1 // 在s[left:i+1]中去除s[i]字符及其之前的部分
-		} else if i+1-left > maxLen {
-			maxLen = i + 1 - left
-		}
-		location[s[i]] = i
-	}
-
-	return maxLen
-}
-
+// 滑动窗口的题，先加元素，再动坐标
 func lengthOfLongestSubstring(s string) int {
-	m := map[byte]int{}
-	n := len(s)
+	res := 0
+	source := map[byte]int{}
+	left, right := 0, 0
 
-	rk, ans := -1, 0
-	for i := 0; i < n; i++ {
-		if i != 0 {
-			delete(m, s[i-1])
+	for ; left < len(s); left++ {
+		// 找到不重复的子序列
+		for right < len(s) && source[s[right]] == 0 {
+			source[s[right]]++
+			right++
 		}
-		for rk+1 < n && m[s[rk+1]] == 0 {
-			m[s[rk+1]]++
-			rk++
-		}
-		ans = max(ans, rk-i+1)
+		res = max(res, right-left)
+		// 删除掉第一个元素，继续尝试找不重复子序列
+		source[s[left]]--
 	}
-	return ans
+	return res
 }
 
 func max(x, y int) int {

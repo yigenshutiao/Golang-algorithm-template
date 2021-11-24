@@ -1,5 +1,7 @@
 package util
 
+import "fmt"
+
 // TreeNode is tree's node
 type TreeNode struct {
 	Val   int
@@ -9,6 +11,42 @@ type TreeNode struct {
 
 // NULL 方便添加测试数据
 var NULL = -1 << 63
+
+func indexOf(val int, nums []int) int {
+	for i, v := range nums {
+		if v == val {
+			return i
+		}
+	}
+
+	msg := fmt.Sprintf("%d 不存在于 %v 中", val, nums)
+	panic(msg)
+}
+
+func PreIn2Tree(pre, in []int) *TreeNode {
+	if len(pre) != len(in) {
+		panic("preIn2Tree 中两个切片的长度不相等")
+	}
+
+	if len(in) == 0 {
+		return nil
+	}
+
+	res := &TreeNode{
+		Val: pre[0],
+	}
+
+	if len(in) == 1 {
+		return res
+	}
+
+	idx := indexOf(res.Val, in)
+
+	res.Left = PreIn2Tree(pre[1:idx+1], in[:idx])
+	res.Right = PreIn2Tree(pre[idx+1:], in[idx+1:])
+
+	return res
+}
 
 // IntSlice2TreeNode 利用 []int 生成 *TreeNode
 func IntSlice2TreeNode(num []int) *TreeNode {

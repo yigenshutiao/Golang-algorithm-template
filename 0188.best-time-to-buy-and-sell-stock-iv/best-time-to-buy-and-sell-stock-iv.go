@@ -6,9 +6,14 @@ func maxProfit(k int, prices []int) int {
 
 	for i := 0; i < len(prices); i++ {
 		dp[i] = make([][]int, k+1)
-		for j := k; j > 0; j-- {
+		for j := k; j >= 0; j-- {
 			dp[i][j] = make([]int, 2)
 		}
+	}
+
+	for i := 0; i < len(prices); i++ {
+		dp[i][0][0] = 0
+		dp[i][0][1] = -999999999
 	}
 
 	for i := 0; i < len(prices); i++ {

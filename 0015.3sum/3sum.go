@@ -3,36 +3,36 @@ package _015_3sum
 import "sort"
 
 func threeSum(nums []int) [][]int {
-	sort.Ints(nums)
 	res := [][]int{}
 
+	sort.Ints(nums)
 	for i := 0; i < len(nums)-2; i++ {
-		n1 := nums[i]
-		// 这里是个优化，最小的数都大于0，相当于无解，直接退出
-		if n1 > 0 {
+		target := nums[i]
+		// 开头大于0，后面没得玩了，直接返回
+		if target > 0 {
 			break
 		}
-		// 这里是用来去重的，如果num[i] == num[i-1], 跳过
+
+		// 这里是防止重复的优化，且只保留第一次的结果
 		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
-		l, r := i+1, len(nums)-1
-		for l < r {
-			n2, n3 := nums[l], nums[r]
-			if n1+n2+n3 == 0 {
-				res = append(res, []int{n1, n2, n3})
-				// 这里是要跳过相同的元素
-				for l < r && nums[l] == n2 {
-					l++
+		// 提前定义坐标很重要
+		left, right := i+1, len(nums)-1
+		for left < right {
+			n1, n2 := nums[left], nums[right]
+			if n1+n2+target == 0 {
+				res = append(res, []int{nums[i], n1, n2})
+				for left < right && nums[left] == n1 {
+					left++
 				}
-				// 这里是要跳过相同的元素
-				for l < r && nums[r] == n3 {
-					r--
+				for left < right && nums[right] == n2 {
+					right--
 				}
-			} else if n1+n2+n3 < 0 {
-				l++
-			} else if n1+n2+n3 > 0 {
-				r--
+			} else if nums[left]+nums[right]+target > 0 {
+				right--
+			} else if nums[left]+nums[right]+target < 0 {
+				left++
 			}
 		}
 	}

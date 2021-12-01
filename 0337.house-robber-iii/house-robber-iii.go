@@ -6,6 +6,7 @@ type TreeNode = util.TreeNode
 
 func rob(root *TreeNode) int {
 	val := dfs(root)
+	// 0代表选择当前节点，1代表不选择当前节点
 	return max(val[0], val[1])
 }
 

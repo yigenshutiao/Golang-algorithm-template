@@ -6,6 +6,7 @@ type ListNode struct {
 }
 
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+	// 这里取指针类型的主要原因是后面代码有head = head.Next
 	head := &ListNode{}
 	pHead := head
 
@@ -17,7 +18,7 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 			head.Next = l2
 			l2 = l2.Next
 		}
-		head = head.Next // head.Next 是上面操作做已经确定顺序的值
+		head = head.Next // head 是已经被确定顺序的节点，head.Next 是后续操作要被确定顺序的节点
 	}
 
 	if l1 != nil {

@@ -5,8 +5,8 @@ type ListNode struct {
 	Next *ListNode
 }
 
-// removeNthFromEnd 链表题需要注意声明虚拟节点和类型问题...
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
+	// 声明一个虚拟节点，后面都从这个节点进行遍历即可
 	phead := ListNode{-1, head}
 	first := &phead
 

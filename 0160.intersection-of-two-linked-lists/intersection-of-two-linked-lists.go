@@ -23,3 +23,19 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	}
 	return p1
 }
+
+// 二刷没记起来，记个搓点的打表法
+func getIntersectionNodes(headA, headB *ListNode) *ListNode {
+	visit := map[*ListNode]bool{}
+
+	for node := headA; node != nil; node = node.Next {
+		visit[node] = true
+	}
+
+	for node := headB; node != nil; node = node.Next {
+		if visit[node] {
+			return node
+		}
+	}
+	return nil
+}

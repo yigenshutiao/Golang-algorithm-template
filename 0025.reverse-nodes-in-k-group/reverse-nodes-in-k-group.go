@@ -16,10 +16,10 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 				return dummy.Next
 			}
 		}
-		nex := tail.Next
+		next := tail.Next
 		head, tail = myReverse(head, tail)
 		pre.Next = head
-		tail.Next = nex
+		tail.Next = next
 		pre = tail
 		head = tail.Next
 	}
@@ -30,10 +30,10 @@ func myReverse(head, tail *ListNode) (*ListNode, *ListNode) {
 	prev := tail.Next
 	p := head
 	for prev != tail {
-		nex := p.Next
+		next := p.Next
 		p.Next = prev
 		prev = p
-		p = nex
+		p = next
 	}
 	return tail, head
 }

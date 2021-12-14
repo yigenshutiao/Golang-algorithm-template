@@ -23,6 +23,7 @@ func run(root *TreeNode, k int) {
 	i++
 	if i == k {
 		res = root.Val
+		return
 	}
 	run(root.Right, k)
 }

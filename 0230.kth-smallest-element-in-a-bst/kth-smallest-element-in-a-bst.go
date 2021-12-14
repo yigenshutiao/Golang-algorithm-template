@@ -4,28 +4,25 @@ import "github.com/yigenshutiao/Golang-algorithm-template/util"
 
 type TreeNode = util.TreeNode
 
+var i int
+var res int
+
 func kthSmallest(root *TreeNode, k int) int {
 	i = 0
-	return run(root, k)
+	res = -1
+	run(root, k)
+	return res
 }
 
-var i int
-
-func run(root *TreeNode, k int) int {
+func run(root *TreeNode, k int) {
 	if root == nil {
-		return -1
+		return
 	}
-	left := run(root.Left, k)
-	if left != -1 {
-		return left
-	}
+	run(root.Left, k)
+
 	i++
 	if i == k {
-		return root.Val
+		res = root.Val
 	}
-	right := run(root.Right, k)
-	if right != -1 {
-		return right
-	}
-	return -1
+	run(root.Right, k)
 }

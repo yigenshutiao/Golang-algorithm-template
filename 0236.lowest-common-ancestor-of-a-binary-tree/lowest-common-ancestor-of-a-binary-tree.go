@@ -14,7 +14,7 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	left := lowestCommonAncestor(root.Left, p, q)
 	right := lowestCommonAncestor(root.Right, p, q)
 
-	//当 left 和 right 同时不为空 ：说明 p, qp,q 分列在 root的 异侧 （分别在 左 / 右子树），因此 root 为最近公共祖先，返回 root ；
+	//当 left 和 right 同时不为空 ：说明 p, q 分列在 root的 异侧 （分别在 左 / 右子树），因此 root 为最近公共祖先，返回 root ；
 	if left != nil && right != nil {
 		return root
 	}

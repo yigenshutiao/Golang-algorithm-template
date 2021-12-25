@@ -43,6 +43,7 @@ func (c *LRUCache) Get(key int) int {
 	return node.Value
 }
 
+// Put ***要记得更新cache里面的值和删除node里面的值***
 func (c *LRUCache) Put(key int, value int) {
 	// 看lru里有没有这个key
 	if _, ok := c.Cache[key]; !ok { // 如果没有

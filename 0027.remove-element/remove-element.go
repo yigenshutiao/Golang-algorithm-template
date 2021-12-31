@@ -22,12 +22,12 @@ func removeElement(nums []int, val int) int {
 }
 
 func removeElements(nums []int, val int) int {
-	res := 0
+	j := 0
 	for i := 0; i < len(nums); i++ {
 		if nums[i] != val {
-			nums[res] = nums[i]
-			res++
+			nums[j] = nums[i]
+			j++
 		}
 	}
-	return res
+	return j
 }

@@ -3,7 +3,7 @@ package _541_reverse_string_ii
 func reverseStr(s string, k int) string {
 	res := []byte(s)
 
-	for i := 0; i < len(res); i += (k * 2) {
+	for i := 0; i < len(res); i += k * 2 {
 		if len(res[i:]) >= k {
 			reverse(res[i : i+k])
 		} else {

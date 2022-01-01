@@ -14,9 +14,9 @@ func Test_reverseWords(t *testing.T) {
 		{
 			"test 1",
 			args{
-				s: "  hello   world  ",
+				s: "the sky is blue",
 			},
-			"world hello",
+			"blue is sky the",
 		},
 	}
 	for _, tt := range tests {

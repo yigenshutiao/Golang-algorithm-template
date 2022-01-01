@@ -21,3 +21,20 @@ func reverseLeftWords(s string, n int) string {
 	}
 	return string(b)
 }
+
+func reverseLeftWords2(s string, n int) string {
+
+	b := []byte(s)
+
+	reverse(b[0:n])
+	reverse(b[n:])
+	reverse(b)
+
+	return string(b)
+}
+
+func reverse(a []byte) {
+	for i := 0; i < len(a)/2; i++ {
+		a[i], a[len(a)-i-1] = a[len(a)-i-1], a[i]
+	}
+}

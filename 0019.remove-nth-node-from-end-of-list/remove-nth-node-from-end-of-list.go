@@ -6,21 +6,19 @@ type ListNode struct {
 }
 
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
-	// 声明一个虚拟节点，后面都从这个节点进行遍历即可
-	phead := ListNode{-1, head}
-	first := &phead
-
-	for i := 0; i < n; i++ {
-		first = first.Next
+	pre := &ListNode{0, head}
+	slow, fast := pre, pre
+	// 1. 快指针走n+1步
+	for i := 0; i <= n; i++ {
+		fast = fast.Next
 	}
-
-	second := &phead
-	for first.Next != nil {
-		first = first.Next
-		second = second.Next
+	// 2. 快慢指针同时走，让慢指针走到n节点的pre
+	for fast != nil {
+		slow = slow.Next
+		fast = fast.Next
 	}
+	// 3. 开始删除
+	slow.Next = slow.Next.Next
 
-	second.Next = second.Next.Next
-
-	return phead.Next
+	return pre.Next
 }

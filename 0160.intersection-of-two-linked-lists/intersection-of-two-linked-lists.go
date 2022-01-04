@@ -39,3 +39,38 @@ func getIntersectionNodes(headA, headB *ListNode) *ListNode {
 	}
 	return nil
 }
+
+// 三刷找到一个优美的解法
+func getIntersectionNodeIII(headA, headB *ListNode) *ListNode {
+	nodeA, nodeB := headA, headB
+	lenA, lenB := 0, 0
+	for nodeA != nil {
+		nodeA = nodeA.Next
+		lenA++
+	}
+
+	for nodeB != nil {
+		nodeB = nodeB.Next
+		lenB++
+	}
+
+	sub := 0
+	slow, fast := &ListNode{}, &ListNode{}
+	if lenA > lenB {
+		sub = lenA - lenB
+		slow, fast = headB, headA
+	} else {
+		sub = lenB - lenA
+		slow, fast = headA, headB
+	}
+
+	for i := 0; i < sub; i++ {
+		fast = fast.Next
+	}
+
+	for slow != fast {
+		slow = slow.Next
+		fast = fast.Next
+	}
+	return fast
+}

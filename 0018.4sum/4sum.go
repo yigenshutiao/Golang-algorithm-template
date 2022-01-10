@@ -23,18 +23,18 @@ func fourSum(nums []int, target int) [][]int {
 			}
 			for left < right {
 				// 重新定义坐标, n1, n2要写在compare 循环里面，不然不会更新...
-				n1, n2 := nums[left], nums[right]
-				if nums[i]+nums[j]+n1+n2 == target {
-					res = append(res, []int{nums[i], nums[j], n1, n2})
+				if nums[i]+nums[j]+nums[left]+nums[right] == target {
+					res = append(res, []int{nums[i], nums[j], nums[left], nums[right]})
+					n1, n2 := nums[left], nums[right]
 					for left < right && n1 == nums[left] {
 						left++
 					}
 					for left < right && n2 == nums[right] {
 						right--
 					}
-				} else if nums[i]+nums[j]+n1+n2 < target {
+				} else if nums[i]+nums[j]+nums[left]+nums[right] < target {
 					left++
-				} else if nums[i]+nums[j]+n1+n2 > target {
+				} else if nums[i]+nums[j]+nums[left]+nums[right] > target {
 					right--
 				}
 			}

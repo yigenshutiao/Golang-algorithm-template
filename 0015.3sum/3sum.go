@@ -20,9 +20,10 @@ func threeSum(nums []int) [][]int {
 		// 提前定义坐标很重要
 		left, right := i+1, len(nums)-1
 		for left < right {
-			n1, n2 := nums[left], nums[right]
-			if n1+n2+target == 0 {
-				res = append(res, []int{nums[i], n1, n2})
+			if nums[left]+nums[right]+target == 0 {
+				res = append(res, []int{nums[i], nums[left], nums[right]})
+
+				n1, n2 := nums[left], nums[right]
 				for left < right && nums[left] == n1 {
 					left++
 				}

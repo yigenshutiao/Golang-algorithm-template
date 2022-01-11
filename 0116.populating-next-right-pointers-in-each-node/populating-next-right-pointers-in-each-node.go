@@ -11,21 +11,32 @@ func connect(root *Node) *Node {
 	if root == nil {
 		return nil
 	}
-	connectTwoNode(root.Left, root.Right)
 
-	return root
-}
+	queue := []*Node{root}
+	nodes := [][]*Node{}
+	for len(queue) > 0 {
+		tmp := []*Node{}
+		l := len(queue)
 
-func connectTwoNode(node1, node2 *Node) {
-	if node1 == nil || node2 == nil {
-		return
+		for i := 0; i < l; i++ {
+			node := queue[0]
+			if node.Left != nil {
+				queue = append(queue, node.Left)
+			}
+			if node.Right != nil {
+				queue = append(queue, node.Right)
+			}
+			queue = queue[1:]
+			tmp = append(tmp, node)
+		}
+		nodes = append(nodes, tmp)
 	}
 
-	node1.Next = node2
+	for i := 0; i < len(nodes); i++ {
+		for j := 0; j < len(nodes[i])-1; j++ {
+			nodes[i][j].Next = nodes[i][j+1]
+		}
+	}
 
-	connectTwoNode(node1.Left, node1.Right)
-	connectTwoNode(node2.Left, node2.Right)
-
-	// 这里要注意一下
-	connectTwoNode(node1.Right, node2.Left)
+	return root
 }

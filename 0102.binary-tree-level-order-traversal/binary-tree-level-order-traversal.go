@@ -7,17 +7,17 @@ import (
 type TreeNode = util.TreeNode
 
 func levelOrder(root *TreeNode) [][]int {
-	var res [][]int
+	res := [][]int{}
 	if root == nil {
 		return res
 	}
 
 	queue := []*TreeNode{root}
-	level := 0
 
 	for len(queue) > 0 {
-		res = append(res, []int{})
-		for l := len(queue); l > 0; l-- {
+		l := len(queue)
+		tmp := []int{}
+		for i := 0; i < l; i++ {
 			node := queue[0]
 			if node.Left != nil {
 				queue = append(queue, node.Left)
@@ -25,10 +25,11 @@ func levelOrder(root *TreeNode) [][]int {
 			if node.Right != nil {
 				queue = append(queue, node.Right)
 			}
-			res[level] = append(res[level], node.Val)
+			tmp = append(tmp, node.Val)
 			queue = queue[1:]
 		}
-		level++
+		res = append(res, tmp)
 	}
+
 	return res
 }

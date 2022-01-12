@@ -41,32 +41,34 @@ func minDepth(root *util.TreeNode) int {
 	return res
 }
 
-func minDepthBfs(root *TreeNode) int {
+func minDepthBFS(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
 
-	var queue []*TreeNode
-	var count []int
+	queue := []*TreeNode{root}
 
-	queue = append(queue, root)
-	count = append(count, 1)
-	for i := 0; i < len(queue); i++ {
-		node := queue[i]
-		depth := count[i]
-		if node.Left == nil && node.Right == nil {
-			return depth
+	res := 0
+	for len(queue) > 0 {
+		l := len(queue)
+
+		for i := 0; i < l; i++ {
+			node := queue[0]
+			if node.Left == nil && node.Right == nil {
+				return res + 1
+			}
+			if node.Left != nil {
+				queue = append(queue, node.Left)
+			}
+			if node.Right != nil {
+				queue = append(queue, node.Right)
+			}
+			queue = queue[1:]
 		}
-		if node.Left != nil {
-			queue = append(queue, node.Left)
-			count = append(count, depth+1)
-		}
-		if node.Right != nil {
-			queue = append(queue, node.Right)
-			count = append(count, depth+1)
-		}
+		res++
 	}
-	return 0
+
+	return res
 }
 
 func main() {

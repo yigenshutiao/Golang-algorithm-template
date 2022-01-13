@@ -8,7 +8,7 @@ func isSymmetric(root *TreeNode) bool {
 	if root == nil {
 		return true
 	}
-
+	// 核心是要把left，right看成两棵树去后续遍历进行比较
 	return compare(root.Left, root.Right)
 }
 

@@ -9,19 +9,20 @@ func buildTree(inorder []int, postorder []int) *TreeNode {
 	if len(inorder) < 1 || len(postorder) < 1 {
 		return nil
 	}
+	idx := findIndex(inorder, postorder[len(postorder)-1])
 
-	index := findIndex(inorder, postorder[len(postorder)-1])
 	root := &TreeNode{
 		Val:   postorder[len(postorder)-1],
-		Left:  buildTree(inorder[:index], postorder[:index]),
-		Right: buildTree(inorder[index+1:], postorder[index+1:len(postorder)-1]),
+		Left:  buildTree(inorder[:idx], postorder[:idx]),
+		Right: buildTree(inorder[idx+1:], postorder[idx:len(postorder)-1]),
 	}
+
 	return root
 }
 
 func findIndex(nums []int, target int) int {
-	for i := 0; i < len(nums); i++ {
-		if nums[i] == target {
+	for i, v := range nums {
+		if v == target {
 			return i
 		}
 	}

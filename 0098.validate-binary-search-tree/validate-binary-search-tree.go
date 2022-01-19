@@ -5,13 +5,24 @@ import "github.com/yigenshutiao/Golang-algorithm-template/util"
 type TreeNode = util.TreeNode
 
 func isValidBST(root *TreeNode) bool {
-	min, max := -9999999999999, 9999999999999
-	return traverse(root, min, max)
-}
+	s := []int{}
+	var traverse func(node *TreeNode)
+	traverse = func(node *TreeNode) {
+		if node == nil {
+			return
+		}
 
-func traverse(root *TreeNode, min, max int) bool {
-	if root == nil {
-		return true
+		traverse(node.Left)
+		s = append(s, node.Val)
+		traverse(node.Right)
 	}
-	return root.Val < max && root.Val > min && traverse(root.Left, min, root.Val) && traverse(root.Right, root.Val, max)
+
+	traverse(root)
+
+	for i := 0; i < len(s)-1; i++ {
+		if s[i] >= s[i+1] {
+			return false
+		}
+	}
+	return true
 }

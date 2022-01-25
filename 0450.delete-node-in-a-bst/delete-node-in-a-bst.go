@@ -9,11 +9,7 @@ func deleteNode(root *TreeNode, key int) *TreeNode {
 		return nil
 	}
 
-	if root.Val > key {
-		root.Left = deleteNode(root.Left, key)
-	} else if root.Val < key {
-		root.Right = deleteNode(root.Right, key)
-	} else if root.Val == key {
+	if root.Val == key {
 		if root.Left == nil && root.Right == nil {
 			return nil
 		}
@@ -23,20 +19,23 @@ func deleteNode(root *TreeNode, key int) *TreeNode {
 		if root.Right == nil {
 			return root.Left
 		}
-		if root.Left != nil && root.Right != nil {
-			minNode := getMin(root.Right)
-			root.Val = minNode.Val
-			root.Right = deleteNode(root.Right, minNode.Val)
-			return root
+
+		tmp := root.Right
+
+		for tmp.Left != nil {
+			tmp = tmp.Left
 		}
+
+		tmp.Left = root.Left
+		root = root.Right
+
+		return root
+
+	} else if root.Val > key {
+		root.Left = deleteNode(root.Left, key)
+	} else if root.Val < key {
+		root.Right = deleteNode(root.Right, key)
 	}
 
 	return root
-}
-
-func getMin(node *TreeNode) *TreeNode {
-	if node.Left == nil {
-		return node
-	}
-	return getMin(node.Left)
 }

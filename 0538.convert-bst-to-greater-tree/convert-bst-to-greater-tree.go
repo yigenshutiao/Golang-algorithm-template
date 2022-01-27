@@ -5,18 +5,20 @@ import "github.com/yigenshutiao/Golang-algorithm-template/util"
 type TreeNode = util.TreeNode
 
 func convertBST(root *TreeNode) *TreeNode {
+	var num int
+	var traverse func(node *TreeNode)
 
-	sum := 0
-
-	var dfs func(node *TreeNode)
-	dfs = func(node *TreeNode) {
-		if node != nil {
-			dfs(node.Right)
-			sum += node.Val
-			node.Val = sum
-			dfs(node.Left)
+	traverse = func(node *TreeNode) {
+		if node == nil {
+			return
 		}
+
+		traverse(node.Right)
+		node.Val += num
+		num = node.Val
+		traverse(node.Left)
 	}
-	dfs(root)
+	traverse(root)
+
 	return root
 }

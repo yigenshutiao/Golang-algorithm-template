@@ -4,6 +4,7 @@ import "github.com/yigenshutiao/Golang-algorithm-template/util"
 
 type TreeNode = util.TreeNode
 
+// diameterOfBinaryTree 直径就是二叉树最长的边
 func diameterOfBinaryTree(root *TreeNode) int {
 	res := 1
 	var traverse func(node *TreeNode) int

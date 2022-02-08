@@ -11,10 +11,11 @@ func quickSort(a []int) {
 	if len(a) <= 1 {
 		return
 	}
-
+	// axis是坐标值，pos是其最终应处位置
 	axis, pos := 0, len(a)-1
 	for i := len(a) - 1; i >= 1; i-- {
 		if a[i] > a[axis] {
+			// a[i]是大于坐标的值，a[pos]是小于坐标的值
 			a[i], a[pos] = a[pos], a[i]
 			pos--
 		}

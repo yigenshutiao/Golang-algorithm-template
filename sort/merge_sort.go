@@ -47,7 +47,7 @@ func mergeSort(arr []int) {
 	copy(arr, merged)
 }
 
-func main() {
+func main1() {
 	//a := []int{5, 2, 3, 7, 6, 9, 0, 8, 4, 1}
 	a := []int{4, 3, 2, 1}
 	mergeSort(a)

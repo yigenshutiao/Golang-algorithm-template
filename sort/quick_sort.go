@@ -27,7 +27,7 @@ func quickSort(a []int) {
 }
 
 func main() {
-	a := []int{5, 2, 3, 7, 6, 9, 0, 8, 4, 1}
+	a := []int{2, 1}
 	quickSort(a)
 	fmt.Print(a)
 }

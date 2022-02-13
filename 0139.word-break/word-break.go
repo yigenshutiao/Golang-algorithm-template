@@ -10,7 +10,7 @@ func wordBreak(s string, wordDict []string) bool {
 	}
 
 	dp[0] = true
-
+	// dp[i] = dp[j] + s[j:i]
 	for i := 1; i <= len(s); i++ {
 		for j := 0; j < i; j++ {
 			if dp[j] && wd[s[j:i]] {

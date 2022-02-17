@@ -1,7 +1,6 @@
 package _146_lru_cache
 
 type LRUCache struct {
-	Size     int
 	Capacity int
 	// hash表
 	Cache      map[int]*DLinkedNode
@@ -53,16 +52,12 @@ func (c *LRUCache) Put(key int, value int) {
 		c.Cache[key] = node
 		// 把节点提到双向链表头部
 		c.addToHead(node)
-		// 链表长度++
-		c.Size++
 		// 如果size 大于 cap
-		if c.Size > c.Capacity {
+		if len(c.Cache) > c.Capacity {
 			// 把尾部节点删掉，这个函数应返回此节点
 			removed := c.removeTail()
 			// map删掉尾部节点
 			delete(c.Cache, removed.Key)
-			// 双向链表size减1
-			c.Size--
 		}
 	} else { // 如果有
 		// 获取这个key

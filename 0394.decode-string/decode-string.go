@@ -21,6 +21,7 @@ func decodeString(s string) string {
 			numStack = append(numStack, num)
 			num = 0
 		} else if char == ']' {
+			// 这里的数字和字母都要重新声明，不能影响前面的结果
 			count := numStack[len(numStack)-1]
 			numStack = numStack[:len(numStack)-1]
 

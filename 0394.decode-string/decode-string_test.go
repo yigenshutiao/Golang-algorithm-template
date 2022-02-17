@@ -14,7 +14,7 @@ func Test_decodeString(t *testing.T) {
 		{
 			"test 1",
 			args{
-				"3[a2[c]]",
+				"3[a]2[bc]",
 			},
 			"accaccacc",
 		},

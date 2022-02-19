@@ -13,10 +13,7 @@ func merge(intervals [][]int) [][]int {
 	for i := 1; i < len(intervals); i++ {
 		// 如果前者的结尾 >= 后者的开头, 需要合并, 进行合并
 		if cur[1] >= intervals[i][0] {
-			cur[0] = cur[0]
-			if cur[1] > intervals[i][1] {
-				cur[1] = cur[1]
-			} else {
+			if cur[1] < intervals[i][1] {
 				cur[1] = intervals[i][1]
 			}
 		} else if cur[1] < intervals[i][0] {

@@ -13,19 +13,19 @@ func exist(board [][]byte, word string) bool {
 		if l == len(word) {
 			return true
 		}
-
+		// 单次搜索边界是否有效
 		if i < 0 || i >= m || j < 0 || j >= n {
 			return false
 		}
-
+		// 当前单词是否已使用，是否和目标相等
 		if isUsed[i][j] == true || board[i][j] != word[l] {
 			return false
 		}
-
+		// 用了就置为true
 		isUsed[i][j] = true
 
 		cur := dfs(i+1, j, l+1) || dfs(i, j+1, l+1) || dfs(i-1, j, l+1) || dfs(i, j-1, l+1)
-
+		// 这里应该是搜一半，然后断了，需要返回结果继续搜
 		if cur == false {
 			isUsed[i][j] = false
 			return false

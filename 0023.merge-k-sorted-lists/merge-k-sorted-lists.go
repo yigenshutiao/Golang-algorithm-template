@@ -13,34 +13,36 @@ func mergeKLists(lists []*ListNode) *ListNode {
 	if len(lists) == 1 {
 		return lists[0]
 	}
-	left := lists[0 : len(lists)/2]
+
+	left := lists[:len(lists)/2]
 	right := lists[len(lists)/2:]
 
-	return mergeTwoLists(mergeKLists(left), mergeKLists(right))
+	return mergeTwoList(mergeKLists(left), mergeKLists(right))
 }
 
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
-	// 这里取指针类型的主要原因是后面代码有head = head.Next
-	head := &ListNode{}
-	pHead := head
+func mergeTwoList(head1, head2 *ListNode) *ListNode {
+	if head1 == nil && head2 == nil {
+		return nil
+	}
 
-	for l1 != nil && l2 != nil {
-		if l1.Val <= l2.Val {
-			head.Next = l1
-			l1 = l1.Next
+	dummy := new(ListNode)
+	pre := dummy
+	for head1 != nil && head2 != nil {
+		if head1.Val < head2.Val {
+			dummy.Next = head1
+			head1 = head1.Next
 		} else {
-			head.Next = l2
-			l2 = l2.Next
+			dummy.Next = head2
+			head2 = head2.Next
 		}
-		head = head.Next // head 是已经被确定顺序的节点，head.Next 是后续操作要被确定顺序的节点
+		dummy = dummy.Next
 	}
 
-	if l1 != nil {
-		head.Next = l1
-	}
-	if l2 != nil {
-		head.Next = l2
+	if head1 != nil {
+		dummy.Next = head1
+	} else {
+		dummy.Next = head2
 	}
 
-	return pHead.Next
+	return pre.Next
 }

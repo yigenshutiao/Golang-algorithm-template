@@ -7,9 +7,9 @@ package _003_longest_substring_without_repeating_characters
 func lengthOfLongestSubstring(s string) int {
 	res := 0
 	source := map[byte]int{}
-	left, right := 0, 0
+	right := 0
 
-	for ; left < len(s); left++ {
+	for left := 0; left < len(s); left++ {
 		// 找到不重复的子序列
 		for right < len(s) && source[s[right]] == 0 {
 			source[s[right]]++

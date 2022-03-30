@@ -19,10 +19,10 @@ func Test_addTwoNumbers(t *testing.T) {
 		{
 			"test 1",
 			args{
-				util.Ints2List([]int{2, 4, 3}),
-				util.Ints2List([]int{5, 6, 4}),
+				util.Ints2List([]int{9, 9, 9, 9, 9, 9, 9}),
+				util.Ints2List([]int{9, 9, 9, 9}),
 			},
-			util.Ints2List([]int{7, 0, 8}),
+			util.Ints2List([]int{8, 9, 9, 9, 0, 0, 0, 1}),
 		},
 	}
 	for _, tt := range tests {

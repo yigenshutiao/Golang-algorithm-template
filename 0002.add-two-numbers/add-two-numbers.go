@@ -7,36 +7,32 @@ import (
 type ListNode = util.ListNode
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	var head *ListNode
-	var tail *ListNode
-	carry := 0
+	dummy := new(ListNode)
+	pre := dummy
+
+	var s, v int
 	for l1 != nil || l2 != nil {
-		n1, n2 := 0, 0
+		v1, v2 := 0, 0
 		if l1 != nil {
-			n1 = l1.Val
+			v1 = l1.Val
 			l1 = l1.Next
 		}
 		if l2 != nil {
-			n2 = l2.Val
+			v2 = l2.Val
 			l2 = l2.Next
 		}
-		sum := (n1 + n2 + carry) % 10
-		carry = (n1 + n2 + carry) / 10
+		sum := v1 + v2 + s
+		s, v = sum/10, sum%10
 
-		if head == nil {
-			// 头结点只用一次
-			head = &ListNode{Val: sum}
-			tail = head
-		} else {
-			// 先记录尾节点的下一个节点，再蠕动尾节点
-			tail.Next = &ListNode{Val: sum}
-			tail = tail.Next
-		}
+		cur := &ListNode{Val: v}
+		dummy.Next = cur
+		dummy = dummy.Next
 	}
 
-	if carry > 0 {
-		tail.Next = &ListNode{Val: carry}
+	if s > 0 {
+		cur := &ListNode{Val: s}
+		dummy.Next = cur
 	}
 
-	return head
+	return pre.Next
 }

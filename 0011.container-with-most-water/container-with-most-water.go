@@ -18,6 +18,7 @@ func maxArea(height []int) int {
 	res := 0
 	for l < r {
 		res = max((r-l)*min(height[l], height[r]), res)
+		// 移动短板，试图换取更长的高度
 		if height[l] < height[r] {
 			l++
 		} else {

@@ -13,7 +13,7 @@ func threeSum(nums []int) [][]int {
 			break
 		}
 
-		// 这里是防止重复的优化，且只保留第一次的结果
+		// 这里是防止重复的优化，且只保留第一次的结果, 注意第一个条件
 		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
@@ -22,7 +22,7 @@ func threeSum(nums []int) [][]int {
 		for left < right {
 			if nums[left]+nums[right]+target == 0 {
 				res = append(res, []int{nums[i], nums[left], nums[right]})
-
+				// 注意标定变量
 				n1, n2 := nums[left], nums[right]
 				for left < right && nums[left] == n1 {
 					left++

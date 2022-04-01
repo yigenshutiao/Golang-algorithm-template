@@ -2,37 +2,32 @@ package _020_valid_parentheses
 
 func isValid(s string) bool {
 	var stack []rune
-	pairRight := map[rune]rune{
-		')': '(',
-		']': '[',
-		'}': '{',
+	parenth := map[rune]rune{
+		'(': ')',
+		'{': '}',
+		'[': ']',
 	}
-
-	pairLeft := map[rune]bool{
-		'(': true,
-		'[': true,
-		'{': true,
-	}
-	for _, ss := range s {
-		// 遇到左括号的就入栈
-		if _, exist := pairLeft[ss]; exist {
-			stack = append(stack, ss)
+	for _, v := range s {
+		if _, ok := parenth[v]; ok {
+			// 如果是左序列，入栈
+			stack = append(stack, v)
 		} else {
-			// 遇到右括号，把栈顶元素pop出来，看能否匹配
+			// 如果开始stack里面没有左序列
 			if len(stack) < 1 {
 				return false
 			}
-			left := stack[len(stack)-1]
+			// 如果是右序列，和栈顶元素匹配，匹配则继续，不匹配则假
+			top := stack[len(stack)-1]
 			stack = stack[:len(stack)-1]
-			val := pairRight[ss]
-			if val != left {
+			if v != parenth[top] {
 				return false
 			}
 		}
 	}
-
+	// 栈长度为0，true
 	if len(stack) == 0 {
 		return true
 	}
+
 	return false
 }

@@ -1,8 +1,8 @@
 package _031_next_permutation
 
-func nextPermutation(nums []int) {
+func nextPermutation(nums []int) []int {
 	if len(nums) <= 1 {
-		return
+		return nums
 	}
 
 	i, j, k := len(nums)-2, len(nums)-1, len(nums)-1
@@ -13,7 +13,7 @@ func nextPermutation(nums []int) {
 		j--
 	}
 
-	// 在 [j,end) 从后向前查找第一个满足 A[i] < A[k] 的 k。A[i]、A[k] 分别就是上文所说的「小数」、「大数」
+	// 在 [j,end) 从后向前查找第一个满足 A[i] < A[k] 的 k。A[i]、A[k] 分别就是「小数」、「大数」
 	if i >= 0 {
 		for nums[i] >= nums[k] {
 			k--
@@ -28,4 +28,6 @@ func nextPermutation(nums []int) {
 		x += 1
 		y -= 1
 	}
+
+	return nums
 }

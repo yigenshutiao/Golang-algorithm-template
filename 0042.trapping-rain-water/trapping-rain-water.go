@@ -2,29 +2,29 @@ package _042_trapping_rain_water
 
 // trap 按照列求每个雨水块的面积，优点是只需要计算高度即可
 func trap(height []int) int {
-	res := 0
+	var res int
 
-	for i := 0; i < len(height); i++ {
-		if i == 0 || i == len(height)-1 {
-			continue
-		}
-
-		leftHigh, rightHigh := height[i], height[i]
-
-		for l := i; l >= 0; l-- {
-			if height[l] > leftHigh {
-				leftHigh = height[l]
+	for i := 1; i < len(height)-1; i++ {
+		left, right := height[i], height[i]
+		// 左边界高度，左边第一个大于其高度的
+		for l := i - 1; l >= 0; l-- {
+			if height[l] > left {
+				left = height[l]
 			}
 		}
 
+		// 右边界高度，右边第一个大于其高度的
 		for r := i + 1; r <= len(height)-1; r++ {
-			if height[r] > rightHigh {
-				rightHigh = height[r]
+			if height[r] > right {
+				right = height[r]
 			}
 		}
 
-		s := min(leftHigh, rightHigh) - height[i]
+		// 求出最小值
+		h := min(left, right)
+		s := h - height[i]
 
+		// 加到面积中
 		res += s
 	}
 

@@ -18,10 +18,18 @@ func Test_searchRange(t *testing.T) {
 		{
 			"test 1",
 			args{
-				[]int{5, 7},
-				7,
+				[]int{5, 7, 7, 8, 8, 10},
+				8,
 			},
-			[]int{1, 1},
+			[]int{3, 4},
+		},
+		{
+			"test 2",
+			args{
+				[]int{5, 7, 7, 8, 8},
+				8,
+			},
+			[]int{3, 4},
 		},
 	}
 	for _, tt := range tests {

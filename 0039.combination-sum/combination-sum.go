@@ -2,33 +2,30 @@ package _039_combination_sum
 
 func combinationSum(candidates []int, target int) [][]int {
 	var res [][]int
-	var cur []int
 
-	var dfs func(res *[][]int, cur []int, sum int, idx int)
-
-	dfs = func(res *[][]int, cur []int, sum int, idx int) {
-		if sum > target {
-			return
-		}
-
-		if sum == target {
-			t := make([]int, len(cur))
-			copy(t, cur)
+	var dfs func(cur int, curidx int, tmp []int, res *[][]int)
+	dfs = func(cur int, curidx int, tmp []int, res *[][]int) {
+		if cur == 0 {
+			// 这里为啥要copy：slice是引用类型，如果不复制，那后面的循环会更新值
+			t := make([]int, len(tmp))
+			copy(t, tmp)
 			*res = append(*res, t)
+		}
+
+		if cur < 0 {
 			return
 		}
 
-		for i := idx; i < len(candidates); i++ {
-			cur = append(cur, candidates[i])
-			sum += candidates[i]
-			// 这里应该传i，而不是idx,idx是起始坐标...
-			dfs(res, cur, sum, i)
-			sum -= candidates[i]
-			cur = cur[:len(cur)-1]
+		for i := curidx; i < len(candidates); i++ {
+			target -= candidates[i]
+			tmp = append(tmp, candidates[i])
+			dfs(target, i, tmp, res)
+			tmp = tmp[:len(tmp)-1]
+			target += candidates[i]
 		}
 	}
 
-	dfs(&res, cur, 0, 0)
+	dfs(target, 0, []int{}, &res)
 
 	return res
 }

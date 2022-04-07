@@ -2,19 +2,18 @@ package _049_group_anagrams
 
 func groupAnagrams(strs []string) [][]string {
 	var res [][]string
-
-	kv := map[[26]int][]string{}
+	// 这个特殊的数据结构需要记忆一下...
+	wordCnt := map[[26]int][]string{}
 	for _, s := range strs {
 		cnt := [26]int{}
 		for _, v := range s {
-			cnt[v-'a'] += 1
+			cnt[v-'a']++
 		}
-
-		kv[cnt] = append(kv[cnt], s)
+		wordCnt[cnt] = append(wordCnt[cnt], s)
 	}
 
-	for _, v := range kv {
-		res = append(res, v)
+	for _, words := range wordCnt {
+		res = append(res, words)
 	}
 
 	return res

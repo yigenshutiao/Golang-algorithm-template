@@ -15,7 +15,7 @@ func quickSort(a []int) {
 	axis, pos := 0, len(a)-1
 	for i := len(a) - 1; i >= 1; i-- {
 		if a[i] > a[axis] {
-			// 如果遍历的值比idx要大，需调整这个值的位置
+			// 如果当前值比坐标值要大，应该先把这个值和pos值进行交换，然后pos往前移
 			a[i], a[pos] = a[pos], a[i]
 			pos--
 		}

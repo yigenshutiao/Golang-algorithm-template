@@ -24,6 +24,7 @@ func exist(board [][]byte, word string) bool {
 		// 用了就置为true
 		isUsed[i][j] = true
 
+		//搜完了当前的，继续搜下一个字段
 		cur := dfs(i+1, j, l+1) || dfs(i, j+1, l+1) || dfs(i-1, j, l+1) || dfs(i, j-1, l+1)
 		// 这里应该是搜一半，然后断了，需要返回结果继续搜
 		if cur == false {

@@ -16,12 +16,12 @@ func Test_exist(t *testing.T) {
 			"test 1",
 			args{
 				[][]byte{
-					{'h', 'e'},
-					{'a', 'l'},
+					{'a', 'b'},
+					{'c', 'd'},
 				},
-				"hel",
+				"acdb",
 			},
-			false,
+			true,
 		},
 	}
 	for _, tt := range tests {

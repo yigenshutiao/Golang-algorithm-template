@@ -5,17 +5,13 @@ import "github.com/yigenshutiao/Golang-algorithm-template/util"
 type TreeNode = util.TreeNode
 
 func inorderTraversal(root *TreeNode) []int {
-	res := []int{}
-
+	var res []int
 	var dfs func(node *TreeNode)
-
 	dfs = func(node *TreeNode) {
 		if node == nil {
 			return
 		}
-		if node.Left != nil {
-			dfs(node.Left)
-		}
+		dfs(node.Left)
 		res = append(res, node.Val)
 		dfs(node.Right)
 	}

@@ -38,7 +38,7 @@ func largestRectangleArea(heights []int) int {
 
 	leftIdx[0] = -1
 	for i := 1; i < len(heights); i++ {
-		// t：i左边的第一个坐标，最终存第一个小于i的坐标
+		// t：最终存第一个小于i的坐标，先预设其小于左边第一个坐标要小于 hei[i]
 		t := i - 1
 		for t >= 0 && heights[t] >= heights[i] {
 			// 这里是在移动t

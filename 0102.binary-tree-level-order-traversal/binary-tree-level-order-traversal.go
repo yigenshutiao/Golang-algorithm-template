@@ -14,9 +14,11 @@ func levelOrder(root *TreeNode) [][]int {
 
 	queue := []*TreeNode{root}
 
+	// 这里需要用len判断，因为已经初始化了
 	for len(queue) > 0 {
 		l := len(queue)
-		tmp := []int{}
+		var tmp []int
+		// 当前level的处理，queue处理当前层，存储下一层
 		for i := 0; i < l; i++ {
 			node := queue[0]
 			if node.Left != nil {

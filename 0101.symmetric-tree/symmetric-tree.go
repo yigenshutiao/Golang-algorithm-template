@@ -5,23 +5,23 @@ import "github.com/yigenshutiao/Golang-algorithm-template/util"
 type TreeNode = util.TreeNode
 
 func isSymmetric(root *TreeNode) bool {
-	if root == nil {
-		return true
-	}
-	// 核心是要把left，right看成两棵树去后续遍历进行比较
-	return compare(root.Left, root.Right)
-}
+	var dfs func(node1, node2 *TreeNode) bool
+	dfs = func(node1, node2 *TreeNode) bool {
+		if node1 == nil && node2 == nil {
+			return true
+		}
+		// 先判断空
+		if (node1 == nil && node2 != nil) || (node1 != nil && node2 == nil) {
+			return false
+		}
+		// 看当前值是否相等
+		if node1.Val != node2.Val {
+			return false
+		}
 
-func compare(left, right *TreeNode) bool {
-	if left == nil && right != nil {
-		return false
-	} else if left != nil && right == nil {
-		return false
-	} else if left == nil && right == nil {
-		return true
-	} else if left.Val != right.Val {
-		return false
+		// 看下一层是否相等
+		return dfs(node1.Left, node2.Right) && dfs(node1.Right, node2.Left)
 	}
 
-	return compare(left.Left, right.Right) && compare(left.Right, right.Left)
+	return dfs(root.Left, root.Right)
 }

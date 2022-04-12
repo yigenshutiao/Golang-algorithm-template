@@ -9,6 +9,24 @@ func maxDepth(root *TreeNode) int {
 		return 0
 	}
 
+	leftDepth := maxDepth(root.Left)
+	rigtDepth := maxDepth(root.Right)
+
+	return 1 + max(leftDepth, rigtDepth)
+}
+
+func max(a, b int) int {
+	if a < b {
+		return b
+	}
+	return a
+}
+
+func maxDepthBfs(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+
 	res := 0
 	queue := []*TreeNode{root}
 

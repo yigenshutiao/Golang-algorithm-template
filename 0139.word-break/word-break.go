@@ -9,6 +9,7 @@ func wordBreak(s string, wordDict []string) bool {
 		wd[word] = true
 	}
 
+	// 长度为i的单词，如果在wordDict中出现过的话，结果为true
 	dp[0] = true
 	// dp[i] = dp[j] + s[j:i]
 	for i := 1; i <= len(s); i++ {

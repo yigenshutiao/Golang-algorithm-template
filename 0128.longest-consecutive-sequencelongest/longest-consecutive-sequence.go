@@ -1,23 +1,24 @@
 package _128_longest_consecutive_sequence
 
 func longestConsecutive(nums []int) int {
-
-	isExists := make(map[int]bool)
-	res := 0
+	numExist := make(map[int]bool, len(nums))
 
 	for _, num := range nums {
-		isExists[num] = true
+		numExist[num] = true
 	}
 
+	var res int
+
 	for i := 0; i < len(nums); i++ {
-		// 左值存在没必要计算，要计算最左值
-		if _, exist := isExists[nums[i]-1]; !exist {
+		// 看当前的数字左边的数字是否存在
+		if _, exist := numExist[nums[i]-1]; !exist {
+			// 如果不存在，计算从这个数字为起点的最大长度
 			cur := 0
 			t := nums[i]
 			for {
-				if _, exist := isExists[t]; exist {
-					cur++
+				if _, exist := numExist[t]; exist {
 					t++
+					cur++
 				} else {
 					break
 				}

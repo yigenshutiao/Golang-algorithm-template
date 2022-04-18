@@ -13,7 +13,9 @@ func maxProfit(prices []int) int {
 	dp[0][1] = -prices[0]
 
 	for i := 1; i < len(prices); i++ {
+		// 今天不持有股票，昨天不持有股票，昨天持有股票，今天卖
 		dp[i][0] = max(dp[i-1][0], dp[i-1][1]+prices[i])
+		// 今天持有股票，昨天持有股票，昨天不持有股票，今天买
 		dp[i][1] = max(dp[i-1][1], -prices[i])
 	}
 

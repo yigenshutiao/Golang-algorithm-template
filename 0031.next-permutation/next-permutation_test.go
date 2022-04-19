@@ -17,9 +17,9 @@ func Test_nextPermutation1(t *testing.T) {
 		{
 			"test 1",
 			args{
-				[]int{3, 2, 1},
+				[]int{1, 2, 3, 8, 5, 7, 6, 4},
 			},
-			[]int{1, 2, 3},
+			[]int{1, 2, 3, 8, 6, 4, 5, 7},
 		},
 	}
 	for _, tt := range tests {

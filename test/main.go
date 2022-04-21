@@ -70,3 +70,23 @@ func generateParenthesis(n int) []string {
 
 	return res
 }
+
+func getIntersectionNode(headA, headB *ListNode) *ListNode {
+	curA, curB := headA, headB
+	for curA != nil || curB != nil {
+		if curA == curB {
+			return curB
+		}
+
+		if curA == nil {
+			curA = headB
+		}
+
+		if curB == nil {
+			curB = headA
+		}
+		curA = curA.Next
+		curB = curB.Next
+	}
+	return nil
+}

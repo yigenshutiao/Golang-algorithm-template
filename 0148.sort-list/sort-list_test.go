@@ -18,7 +18,7 @@ func Test_sortList(t *testing.T) {
 		{
 			"test1",
 			args{
-				head: util.Ints2List([]int{4, 1, 3, 2}),
+				head: util.Ints2List([]int{4, 2, 1, 3}),
 			},
 			util.Ints2List([]int{1, 2, 3, 4}),
 		},

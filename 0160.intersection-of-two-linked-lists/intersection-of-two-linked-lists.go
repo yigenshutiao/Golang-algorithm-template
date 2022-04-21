@@ -24,6 +24,28 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	return p1
 }
 
+func getIntersectionNodeIV(headA, headB *ListNode) *ListNode {
+	curA, curB := headA, headB
+	for curA != nil || curB != nil {
+		if curA == curB {
+			return curB
+		}
+
+		if curA == nil {
+			curA = headB
+		} else {
+			curA = curA.Next
+		}
+
+		if curB == nil {
+			curB = headA
+		} else {
+			curB = curB.Next
+		}
+	}
+	return nil
+}
+
 // 二刷没记起来，记个搓点的打表法
 func getIntersectionNodes(headA, headB *ListNode) *ListNode {
 	visit := map[*ListNode]bool{}

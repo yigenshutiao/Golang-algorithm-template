@@ -6,7 +6,6 @@ func maximalSquare(matrix [][]byte) int {
 	square := 0
 	for i := 0; i < len(dp); i++ {
 		dp[i] = make([]int, len(matrix[i]))
-
 		for j := 0; j < len(dp[i]); j++ {
 			x := matrix[i][j] - '0'
 			if x == 1 {
@@ -35,6 +34,5 @@ func min(a, b int) int {
 	if a < b {
 		return a
 	}
-
 	return b
 }

@@ -1,31 +1,30 @@
 package test
 
 import (
-	"reflect"
 	"testing"
 )
 
-func Test_generateParenthesis(t *testing.T) {
+func Test_maximalSquare(t *testing.T) {
 	type args struct {
-		n int
+		matrix [][]byte
 	}
 	tests := []struct {
 		name string
 		args args
-		want []string
+		want int
 	}{
 		{
-			"test 1",
+			"test1",
 			args{
-				2,
+				[][]byte{{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}},
 			},
-			[]string{},
+			4,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := generateParenthesis(tt.args.n); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("generateParenthesis() = %v, want %v", got, tt.want)
+			if got := maximalSquare(tt.args.matrix); got != tt.want {
+				t.Errorf("maximalSquare() = %v, want %v", got, tt.want)
 			}
 		})
 	}

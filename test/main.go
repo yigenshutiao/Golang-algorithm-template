@@ -1,92 +1,29 @@
 package test
 
-import "github.com/yigenshutiao/Golang-algorithm-template/util"
+import "strconv"
 
-type ListNode = util.ListNode
+func maximalSquare(matrix [][]byte) int {
+	var corner int
 
-func mergeKLists(lists []*ListNode) *ListNode {
-	if lists == nil {
-		return nil
+	for i := 1; i < len(matrix); i++ {
+		for j := 1; j < len(matrix[0]); j++ {
+			t := min(min(matrix[i-1][j], matrix[i][j-1]), matrix[i-1][j-1])
+			if matrix[i][j] > '0' && t >= matrix[i][j] {
+				matrix[i][j] = t + 1
+			}
+			a, _ := strconv.Atoi(string(matrix[i][j]))
+			if a > corner {
+				corner = a
+			}
+		}
 	}
 
-	if len(lists) == 1 {
-		return lists[0]
-	}
-
-	left := lists[:len(lists)/2]
-	right := lists[len(lists)/2:]
-
-	return mergeTwoLists(mergeKLists(left), mergeKLists(right))
+	return corner * corner
 }
 
-func mergeTwoLists(list1, list2 *ListNode) *ListNode {
-	dummy := new(ListNode)
-	pre := dummy
-
-	for list1 != nil && list2 != nil {
-		if list2.Val > list1.Val {
-			dummy.Next = list1
-			list1 = list1.Next
-		} else {
-			dummy.Next = list2
-			list2 = list2.Next
-		}
-		dummy = dummy.Next
+func min(a, b byte) byte {
+	if a < b {
+		return a
 	}
-
-	if list2 != nil {
-		dummy.Next = list2
-	} else {
-		dummy.Next = list1
-	}
-	return pre.Next
-}
-
-// 输入：n = 3
-// 输出：["((()))","(()())","(())()","()(())","()()()"]
-func generateParenthesis(n int) []string {
-	var res []string
-
-	var dfs func(left, right int, cur string, res *[]string)
-	dfs = func(left, right int, cur string, res *[]string) {
-		if left == 0 && right == 0 {
-			*res = append(*res, cur)
-			return
-		}
-		if left > right {
-			return
-		}
-
-		if left > 0 {
-			dfs(left-1, right, cur+"(", res)
-		}
-
-		if right > 0 {
-			dfs(left, right-1, cur+")", res)
-		}
-	}
-
-	dfs(n, n, "", &res)
-
-	return res
-}
-
-func getIntersectionNode(headA, headB *ListNode) *ListNode {
-	curA, curB := headA, headB
-	for curA != nil || curB != nil {
-		if curA == curB {
-			return curB
-		}
-
-		if curA == nil {
-			curA = headB
-		}
-
-		if curB == nil {
-			curB = headA
-		}
-		curA = curA.Next
-		curB = curB.Next
-	}
-	return nil
+	return b
 }

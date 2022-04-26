@@ -1,7 +1,9 @@
 package _283_move_zeroes
 
 // 双指针
-func moveZeroes(nums []int) {
+func moveZeroes(nums []int) []int {
+	// l想要指的是0值所处的位置
+	// r是非0值的位置，要不断移动
 	l, r := 0, 0
 	n := len(nums)
 
@@ -12,12 +14,13 @@ func moveZeroes(nums []int) {
 		}
 		r++
 	}
+	return nums
 }
 
 // 暴力解法
-func moveZeroes2(nums []int) {
+func moveZeroes2(nums []int) []int {
 	if len(nums) < 2 {
-		return
+		return nums
 	}
 	for i := 0; i < len(nums); i++ {
 		if nums[i] == 0 {
@@ -31,4 +34,5 @@ func moveZeroes2(nums []int) {
 			i = t
 		}
 	}
+	return nums
 }

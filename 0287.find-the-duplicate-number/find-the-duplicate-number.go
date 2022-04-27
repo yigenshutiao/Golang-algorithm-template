@@ -7,12 +7,15 @@ func findDuplicate(nums []int) int {
 	for l < r {
 		mid := (l + r) >> 1
 		cnt := 0
+
+		// 这里一定是小于 等于mid的个数
 		for _, num := range nums {
 			if num <= mid {
 				cnt++
 			}
 		}
 
+		// 如果小于mid的cnt > mid,说明左边"]"有重复，否则说明右边(有重复
 		if cnt > mid {
 			r = mid
 		} else {

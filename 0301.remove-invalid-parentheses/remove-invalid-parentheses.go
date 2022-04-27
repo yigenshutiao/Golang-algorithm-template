@@ -1,60 +1,62 @@
 package _301_remove_invalid_parentheses
 
 func removeInvalidParentheses(s string) []string {
-	// 计算出l和r需要删除的次数
-	lResult, rResult := 0, 0
-	for _, ss := range s {
-		if ss == '(' {
-			lResult += 1
-		} else if ss == ')' && lResult > 0 {
-			lResult -= 1
-		} else if ss == ')' && lResult == 0 {
-			rResult += 1
+	var leftRem, rigtRem int
+	// 计算出要删除的左括号和右括号
+	for _, v := range s {
+		if v == '(' {
+			leftRem++
+		} else if v == ')' && leftRem > 0 {
+			leftRem--
+		} else if v == ')' && leftRem == 0 {
+			rigtRem++
+		}
+	}
+	var res []string
+	var dfs func(res *[]string, index, leftRem, rigtRem int, cur string)
+	dfs = func(res *[]string, index, leftRem, rigtRem int, cur string) {
+		if leftRem == 0 && rigtRem == 0 {
+			// 判断是否有效
+			if valid(cur) {
+				*res = append(*res, cur)
+			}
+			return
+		}
+
+		// 这里移动idx
+		for i := index; i < len(cur); i++ {
+			if i > index && cur[i] == cur[i-1] {
+				continue
+			}
+
+			// 这里不移动idx，在外层统一移动
+			if cur[i] == '(' && leftRem > 0 {
+				dfs(res, i, leftRem-1, rigtRem, cur[:i]+cur[i+1:])
+			}
+
+			if cur[i] == ')' && rigtRem > 0 {
+				dfs(res, i, leftRem, rigtRem-1, cur[:i]+cur[i+1:])
+			}
 		}
 	}
 
-	// 开始删除
-	var res []string
-	dfs(&res, 0, lResult, rResult, s)
+	dfs(&res, 0, leftRem, rigtRem, s)
 
 	return res
 }
 
-func dfs(res *[]string, startIndex int, lResult, rResult int, cur string) {
-	if lResult == 0 && rResult == 0 {
-		if valid(cur) {
-			*res = append(*res, cur)
-		}
-		return
-	}
-
-	for i := startIndex; i < len(cur); i++ {
-		// 避免相同的情况
-		if i > startIndex && cur[i] == cur[i-1] {
-			continue
-		}
-
-		if cur[i] == '(' && lResult > 0 {
-			dfs(res, i, lResult-1, rResult, cur[:i]+cur[i+1:])
-		}
-
-		if cur[i] == ')' && rResult > 0 {
-			dfs(res, i, lResult, rResult-1, cur[:i]+cur[i+1:])
-		}
-	}
-}
-
-func valid(s string) bool {
-	cnt := 0
-	for _, v := range s {
-		if v == '(' {
+func valid(ss string) bool {
+	var cnt int
+	for _, s := range ss {
+		if s == '(' {
 			cnt++
-		} else if v == ')' {
+		} else if s == ')' {
 			cnt--
 			if cnt < 0 {
 				return false
 			}
 		}
 	}
+
 	return cnt == 0
 }

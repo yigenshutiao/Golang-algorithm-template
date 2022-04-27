@@ -19,7 +19,7 @@ func Test_removeInvalidParentheses(t *testing.T) {
 			args{
 				"(a)())()",
 			},
-			[]string{"(())()", "()()()"},
+			[]string{"(a())()", "(a)()()"},
 		},
 	}
 	for _, tt := range tests {

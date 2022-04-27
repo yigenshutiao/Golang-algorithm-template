@@ -16,36 +16,47 @@ func Constructor() Codec {
 }
 
 // Serializes a tree to a single string.
-func (Codec) serialize(root *TreeNode) string {
-	res := &strings.Builder{}
-	var dfs func(root *TreeNode)
-	dfs = func(root *TreeNode) {
-		if root == nil {
-			res.WriteString("null,")
+func (this *Codec) serialize(root *TreeNode) string {
+	var res string
+
+	var dfs func(node *TreeNode)
+	dfs = func(node *TreeNode) {
+		if node == nil {
+			res += "null,"
 			return
 		}
 
-		res.WriteString(strconv.Itoa(root.Val) + ",")
-		dfs(root.Left)
-		dfs(root.Right)
+		res += strconv.Itoa(node.Val) + ","
+		dfs(node.Left)
+		dfs(node.Right)
 	}
 
 	dfs(root)
-	return res.String()
+
+	return res
 }
 
 // Deserializes your encoded data to tree.
-func (Codec) deserialize(data string) *TreeNode {
+func (this *Codec) deserialize(data string) *TreeNode {
 	s := strings.Split(data, ",")
 	var traverse func() *TreeNode
+
 	traverse = func() *TreeNode {
-		if s[0] == "null" {
+		val := s[0]
+
+		if val == "null" {
 			s = s[1:]
 			return nil
 		}
-		val, _ := strconv.Atoi(s[0])
+
+		v, _ := strconv.Atoi(val)
 		s = s[1:]
-		return &TreeNode{val, traverse(), traverse()}
+
+		return &TreeNode{
+			Val:   v,
+			Left:  traverse(),
+			Right: traverse(),
+		}
 	}
 
 	return traverse()

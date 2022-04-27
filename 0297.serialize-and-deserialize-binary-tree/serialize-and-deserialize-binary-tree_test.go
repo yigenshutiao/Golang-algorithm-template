@@ -12,7 +12,7 @@ func TestCodec_deserialize(t *testing.T) {
 		pre, in []int
 	}{
 		[]int{1, 2, 3, 4, 5},
-		[]int{9, 3, 15, 20, 7},
+		[]int{2, 1, 4, 3, 5},
 	}
 
 	ser := Constructor()

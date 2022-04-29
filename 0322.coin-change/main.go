@@ -11,7 +11,7 @@ func coinChange(coins []int, amount int) int {
 	dp := make([]int, amount+1)
 
 	for i := 1; i <= amount; i++ {
-		// 搞个无解的默认值，用来初始化dp数组，这一步很关键
+		// 随便搞个无解的默认值，用来初始化dp数组，这一步很关键
 		dp[i] = amount + 1
 		for _, c := range coins {
 			if i >= c {

@@ -1,4 +1,4 @@
-package test
+package _347_top_k_frequent_elements
 
 import (
 	"reflect"
@@ -18,10 +18,10 @@ func Test_topKFrequent(t *testing.T) {
 		{
 			"test1",
 			args{
-				[]int{1, 1, 1, 2, 2, 2, 3, 3, 3},
-				3,
+				[]int{3, 6, 6, 6, 4, 4},
+				2,
 			},
-			[]int{1, 2, 3},
+			[]int{6, 4},
 		},
 	}
 	for _, tt := range tests {

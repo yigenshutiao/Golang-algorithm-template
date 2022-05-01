@@ -27,7 +27,7 @@ func decodeString(s string) string {
 
 			str := strStack[len(strStack)-1]
 			strStack = strStack[:len(strStack)-1]
-			// 最终结果 = pope出来的字段 + 当前的字符 * 重复次数
+			// 最终结果 = pope出来的字段 + 当前的字符 * 重复次数，这个公式要注意一下
 			result = str + strings.Repeat(result, count)
 		} else {
 			result += string(char)

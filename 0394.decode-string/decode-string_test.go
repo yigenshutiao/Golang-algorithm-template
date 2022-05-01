@@ -14,9 +14,9 @@ func Test_decodeString(t *testing.T) {
 		{
 			"test 1",
 			args{
-				"ab2[cd]",
+				"3[a2[c]]",
 			},
-			"abcdcd",
+			"accaccacc",
 		},
 	}
 	for _, tt := range tests {

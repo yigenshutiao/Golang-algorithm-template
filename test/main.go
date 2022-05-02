@@ -53,3 +53,43 @@ func quickSort(nums []int) {
 	quickSort(nums[:pos])
 	quickSort(nums[pos+1:])
 }
+func findAnagrams(s string, p string) []int {
+	source := map[byte]int{}
+	for i := 0; i < len(p); i++ {
+		source[p[i]]++
+	}
+
+	left, right := 0, len(p)-1
+
+	target := map[byte]int{}
+	for i := left; i <= right; i++ {
+		target[s[i]]++
+	}
+
+	var res []int
+	for right < len(s) {
+		if check(target, source) {
+			res = append(res, left)
+		}
+
+		target[s[left]]--
+		left++
+
+		right++
+		if right == len(s) {
+			break
+		}
+		target[s[right]]++
+	}
+
+	return res
+}
+
+func check(source, target map[byte]int) bool {
+	for k, v := range target {
+		if source[k] != v {
+			return false
+		}
+	}
+	return true
+}

@@ -18,8 +18,8 @@ func Test_findAnagrams(t *testing.T) {
 		{
 			"test 1",
 			args{
-				"abab",
-				"ab",
+				"cbaebabacd",
+				"abc",
 			},
 			[]int{0, 1, 2},
 		},

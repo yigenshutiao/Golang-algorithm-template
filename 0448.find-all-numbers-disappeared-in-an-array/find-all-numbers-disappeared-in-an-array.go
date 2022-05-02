@@ -17,7 +17,7 @@ func findDisappearedNumbers(nums []int) []int {
 		// 如果 i++ 就会跳过它，少考察了它
 	}
 
-	res := []int{}
+	var res []int
 	for i := 0; i < len(nums); i++ {
 		if nums[i] != i+1 { // 值与索引 不对应
 			res = append(res, i+1)

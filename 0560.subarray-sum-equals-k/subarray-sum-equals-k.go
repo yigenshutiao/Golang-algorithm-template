@@ -3,6 +3,7 @@ package _560_subarray_sum_equals_k
 // 前缀和版本
 func subarraySum(nums []int, k int) int {
 	res := 0
+	// 这个前缀和map比较关键，记录每个前缀和的个数
 	pre := map[int]int{}
 	pre[0] = 1
 

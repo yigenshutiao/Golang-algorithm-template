@@ -30,5 +30,6 @@ func findTargetSumWays(nums []int, target int) int {
 			//fmt.Println(dp)
 		}
 	}
+
 	return dp[bag]
 }

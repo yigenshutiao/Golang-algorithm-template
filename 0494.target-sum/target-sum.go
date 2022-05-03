@@ -1,5 +1,10 @@
 package _494_target_sum
 
+import "sort"
+
+// left + right = sum
+// left - right = target
+// left = (sum + target) >> 1
 func findTargetSumWays(nums []int, target int) int {
 	sum := 0
 	for _, v := range nums {
@@ -32,4 +37,43 @@ func findTargetSumWays(nums []int, target int) int {
 	}
 
 	return dp[bag]
+}
+
+// findTargetSumWay 回溯法
+func findTargetSumWay(nums []int, target int) int {
+	var sum int
+
+	for _, num := range nums {
+		sum += num
+	}
+
+	if target > sum {
+		return 0
+	}
+
+	if (target+sum)%2 == 1 {
+		return 0
+	}
+
+	sort.Slice(nums, func(i, j int) bool {
+		return nums[i] < nums[j]
+	})
+
+	tar := (target + sum) / 2
+	var res int
+	var traverse func(idx int, cur, tar int)
+	traverse = func(idx int, cur, tar int) {
+		if cur == tar {
+			res += 1
+		}
+
+		for i := idx; i < len(nums) && cur+nums[i] <= tar; i++ {
+			traverse(i+1, cur+nums[i], tar)
+		}
+
+	}
+
+	traverse(0, 0, tar)
+
+	return res
 }

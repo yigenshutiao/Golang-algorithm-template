@@ -6,7 +6,7 @@ type TreeNode = util.TreeNode
 
 // diameterOfBinaryTree 直径就是二叉树最长的边
 func diameterOfBinaryTree(root *TreeNode) int {
-	res := 1
+	var res int
 	var traverse func(node *TreeNode) int
 	traverse = func(node *TreeNode) int {
 		if node == nil {
@@ -15,15 +15,15 @@ func diameterOfBinaryTree(root *TreeNode) int {
 
 		left := traverse(node.Left)
 		right := traverse(node.Right)
-
-		res = max(res, left+right+1)
+		// 每个点都应该试着找最大值
+		res = max(res, left+right)
 
 		return max(left, right) + 1
 	}
 
 	traverse(root)
 
-	return res - 1
+	return res
 }
 
 func max(a, b int) int {

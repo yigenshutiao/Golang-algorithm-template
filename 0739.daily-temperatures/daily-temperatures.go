@@ -17,6 +17,7 @@ func dailyTemperatures(temperatures []int) []int {
 	return res
 }
 
+// 递减栈
 func dailyTemperature(temperatures []int) []int {
 	res := make([]int, len(temperatures))
 	var stack []int

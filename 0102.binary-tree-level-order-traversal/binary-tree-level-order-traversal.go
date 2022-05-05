@@ -20,6 +20,7 @@ func levelOrder(root *TreeNode) [][]int {
 		var tmp []int
 		// 当前level的处理，queue处理当前层，存储下一层
 		for i := 0; i < l; i++ {
+			// 每次遍历第一个元素
 			node := queue[0]
 			if node.Left != nil {
 				queue = append(queue, node.Left)

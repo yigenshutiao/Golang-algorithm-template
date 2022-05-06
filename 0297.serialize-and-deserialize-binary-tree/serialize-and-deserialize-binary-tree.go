@@ -46,6 +46,7 @@ func (this *Codec) deserialize(data string) *TreeNode {
 
 		if val == "null" {
 			s = s[1:]
+			// 这一步很关键
 			return nil
 		}
 

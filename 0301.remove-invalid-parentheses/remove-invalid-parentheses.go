@@ -25,6 +25,7 @@ func removeInvalidParentheses(s string) []string {
 
 		// 这里移动idx
 		for i := index; i < len(cur); i++ {
+			// 这里和三数之和的方法差不多，因为是递归，所以是大于idx
 			if i > index && cur[i] == cur[i-1] {
 				continue
 			}

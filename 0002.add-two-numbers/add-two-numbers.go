@@ -11,6 +11,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	pre := dummy
 
 	var s, v int
+	// 两个节点有一个不为空即可，每次拿到当前值和是否进位
 	for l1 != nil || l2 != nil {
 		v1, v2 := 0, 0
 		if l1 != nil {

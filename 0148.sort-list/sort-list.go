@@ -9,6 +9,7 @@ func sortList(head *ListNode) *ListNode {
 		return head
 	}
 	slow, fast := head, head
+	// 这里要做初始化, 不然后面取Next指针可能会nil异常
 	pre := new(ListNode)
 
 	for fast != nil && fast.Next != nil {

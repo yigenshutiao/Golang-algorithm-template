@@ -6,7 +6,8 @@ type ListNode struct {
 }
 
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
-	// 这里取指针类型的主要原因是后面代码有head = head.Next
+	// 这里应该初始化，不然后面的Next指针没法取
+	// 这里取指针类型的主要原因是后面代码有head = head.Next,
 	head := &ListNode{}
 	pHead := head
 

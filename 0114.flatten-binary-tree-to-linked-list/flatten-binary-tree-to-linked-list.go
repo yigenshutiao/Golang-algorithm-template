@@ -11,7 +11,7 @@ func flatten(root *TreeNode) {
 			// 若左孩子为空，不需要处理
 			root = root.Right
 		} else {
-			// 当前节点同时具备俩子树
+			// 当前节点同时具备俩子树时，才需要处理，不然属于已处理好的节点
 			pre := root.Left
 			// 找到左孩子的最右边节点
 			for pre.Right != nil {

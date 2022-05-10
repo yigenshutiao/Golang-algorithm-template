@@ -20,7 +20,7 @@ func findKthLargest(nums []int, k int) int {
 
 func getPos(nums []int, left, right int) int {
 	idx, pos := left, right
-	for i := right; i > left; i-- {
+	for i := right; i >= left; i-- {
 		if nums[i] > nums[idx] {
 			nums[i], nums[pos] = nums[pos], nums[i]
 			pos--

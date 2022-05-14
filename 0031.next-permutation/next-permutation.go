@@ -33,3 +33,31 @@ func nextPermutation(nums []int) []int {
 
 	return nums
 }
+
+func nextPermutationA(nums []int) {
+	i, j := len(nums)-2, len(nums)-1
+
+	// 从后往前找第一个降序：如果[i, j] 是降序，则继续，否则就是第一个升序
+	for i >= 0 && nums[i] >= nums[j] {
+		i--
+		j--
+	}
+
+	k := len(nums) - 1
+	// 这个条件说明找到了降序的序列
+	if i >= 0 {
+		// 从后向前，找第一个大于i的坐标，然后进行交换
+		for nums[k] <= nums[i] {
+			k--
+		}
+
+		nums[i], nums[k] = nums[k], nums[i]
+	}
+
+	// j后面的数字倒序
+	for x, y := j, len(nums)-1; x < y; {
+		nums[x], nums[y] = nums[y], nums[x]
+		x++
+		y--
+	}
+}

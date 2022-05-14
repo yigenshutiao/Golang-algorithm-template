@@ -10,6 +10,7 @@ func maxProfit(prices []int) int {
 	}
 
 	for i := 0; i < len(prices); i++ {
+		// j 是次数，第一次，第二次；
 		for j := 2; j >= 1; j-- {
 			if i == 0 {
 				dp[i][j][0] = 0

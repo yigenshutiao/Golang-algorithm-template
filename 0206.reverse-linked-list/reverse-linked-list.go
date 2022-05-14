@@ -18,3 +18,17 @@ func reverseList(head *ListNode) *ListNode {
 	}
 	return pre
 }
+
+//递归
+func reverseListRecursion(head *ListNode) *ListNode {
+	return help(nil, head)
+}
+
+func help(pre, head *ListNode) *ListNode {
+	if head == nil {
+		return pre
+	}
+	next := head.Next
+	head.Next = pre
+	return help(head, next)
+}

@@ -17,6 +17,7 @@ func threeSum(nums []int) [][]int {
 		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
+
 		// 提前定义坐标很重要
 		left, right := i+1, len(nums)-1
 		for left < right {
@@ -37,5 +38,6 @@ func threeSum(nums []int) [][]int {
 			}
 		}
 	}
+
 	return res
 }

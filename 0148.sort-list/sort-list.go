@@ -18,6 +18,7 @@ func sortList(head *ListNode) *ListNode {
 		fast = fast.Next.Next
 	}
 
+	// 不要忘记截断next指针
 	pre.Next = nil
 	list1 := sortList(head)
 	list2 := sortList(slow)

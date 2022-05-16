@@ -28,3 +28,24 @@ func max(x, y int) int {
 	}
 	return x
 }
+
+func lengthOfLongestSubstrings(s string) int {
+	source := make(map[byte]int, len(s))
+	var res int
+
+	right := 0
+	for left := 0; left < len(s); left++ {
+		for right < len(s) && source[s[right]] == 0 {
+			source[s[right]]++
+			right++
+		}
+
+		if res < right-left {
+			res = right - left
+		}
+
+		source[s[left]]--
+
+	}
+	return res
+}

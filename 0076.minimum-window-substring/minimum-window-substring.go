@@ -38,3 +38,46 @@ func check(source, target map[byte]int) bool {
 	}
 	return true
 }
+
+func minWindows(s string, t string) string {
+	source := make(map[byte]int, len(t))
+
+	for k := range t {
+		source[t[k]]++
+	}
+
+	target := make(map[byte]int)
+
+	lens := 99999999
+	start, end := -1, -1
+
+	for l, r := 0, 0; r < len(s); r++ {
+		target[s[r]]++
+		// r自增，直到覆盖source
+		for l <= r && checks(source, target) {
+			if lens > r-l+1 {
+				start = l
+				end = r + 1
+				lens = r - l + 1
+			}
+			target[s[l]]--
+			l++
+		}
+	}
+
+	if start == -1 {
+		return ""
+	}
+
+	return s[start:end]
+}
+
+func checks(source, target map[byte]int) bool {
+	for k, v := range source {
+		if target[k] < v {
+			return false
+		}
+	}
+
+	return true
+}

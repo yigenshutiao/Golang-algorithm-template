@@ -17,6 +17,7 @@ func findAnagrams(s string, p string) []int {
 
 	target := map[byte]int{}
 
+	// 这里要注意一下，right应该初始化为len(p) - 1, 这是因为坐标从0开始计算
 	left, right := 0, len(p)-1
 	// target是滑动窗口值
 	for i := left; i <= right; i++ {

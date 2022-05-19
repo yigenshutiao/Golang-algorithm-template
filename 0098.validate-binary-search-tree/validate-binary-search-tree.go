@@ -37,9 +37,11 @@ func isValidBST(root *TreeNode) bool {
 		}
 
 		leftRes := dfs(node.Left)
+		// 这里的Pre != nil 没想到
 		if pre != nil && pre.Val >= node.Val {
 			return false
 		}
+		// 上面一卡，下面就可以赋值了
 		pre = node
 
 		rightRes := dfs(node.Right)

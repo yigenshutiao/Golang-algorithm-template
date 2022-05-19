@@ -13,6 +13,15 @@ func Test_search(t *testing.T) {
 		want int
 	}{
 		{
+			"name2",
+			args{
+				[]int{4, 5, 6, 7, 0, 1, 2},
+				0,
+			},
+			4,
+		},
+
+		{
 			"test 1",
 			args{
 				[]int{3, 1},

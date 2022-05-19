@@ -5,9 +5,11 @@ import "github.com/yigenshutiao/Golang-algorithm-template/util"
 type TreeNode = util.TreeNode
 
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+	// 搜到底了，返回
 	if root == nil {
 		return nil
 	}
+	// 搜到目标值了，返回当前节点
 	if root == p || root == q {
 		return root
 	}

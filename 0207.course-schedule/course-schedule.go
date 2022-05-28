@@ -7,9 +7,9 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 	degreeIn := make([]int, numCourses)
 
 	for _, pair := range prerequisites {
-		cur, deply := pair[0], pair[1]
+		cur, rely := pair[0], pair[1]
 		degreeIn[cur]++
-		graph[deply] = append(graph[deply], cur)
+		graph[rely] = append(graph[rely], cur)
 	}
 
 	queue := make([]int, 0)

@@ -1,35 +1,39 @@
 package _207_course_schedule
 
-func canFinish(n int, edges [][]int) bool {
-	g := make([][]int, n)
-	d := make([]int, n)
+func canFinish(numCourses int, prerequisites [][]int) bool {
+	// 记录每个元素的出度
+	graph := make([][]int, numCourses)
+	// 记录从 0 到 n-1，所有元素的入度
+	degreeIn := make([]int, numCourses)
 
-	for _, e := range edges {
-		b, a := e[0], e[1]
-		g[a] = append(g[a], b)
-		d[b]++
+	for _, pair := range prerequisites {
+		cur, deply := pair[0], pair[1]
+		degreeIn[cur]++
+		graph[deply] = append(graph[deply], cur)
 	}
 
-	q := make([]int, 0)
-	for i := 0; i < n; i++ {
-		if d[i] == 0 {
-			q = append(q, i)
+	queue := make([]int, 0)
+	// 把所有入度为0的元素放在queue里面
+	for node, val := range degreeIn {
+		if val == 0 {
+			queue = append(queue, node)
 		}
 	}
 
-	cnt := 0
-	for len(q) > 0 {
-		t := q[0]
-		q = q[1:]
+	var cnt int
+	for len(queue) > 0 {
+		node := queue[0]
+		queue = queue[1:]
 		cnt++
 
-		for _, i := range g[t] {
-			d[i]--
-			if d[i] == 0 {
-				q = append(q, i)
+		// 遍历元素所有的出度，把出度元素的入度--
+		for _, val := range graph[node] {
+			degreeIn[val]--
+			if degreeIn[val] == 0 {
+				queue = append(queue, val)
 			}
 		}
 	}
 
-	return cnt == n
+	return cnt == numCourses
 }

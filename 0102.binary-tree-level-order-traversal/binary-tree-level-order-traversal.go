@@ -8,6 +8,7 @@ type TreeNode = util.TreeNode
 
 func levelOrder(root *TreeNode) [][]int {
 	res := [][]int{}
+	//不要忘了过了nil的情况
 	if root == nil {
 		return res
 	}

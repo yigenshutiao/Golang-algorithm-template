@@ -33,7 +33,7 @@ func (cache *LRUCache) Get(key int) int {
 		// 如果不存在节点，返回-1
 		return -1
 	}
-	// 如果存在节点, 返回值，把当前位置删除，并把节点放在头部
+	// 如果存在节点, 返回值，把原来位置删除，并把节点放在头部
 	node := cache.Info[key]
 
 	cache.removeNode(node)
@@ -46,6 +46,8 @@ func (cache *LRUCache) Get(key int) int {
 func (cache *LRUCache) addToHead(node *Node) {
 	node.Pre = cache.Head
 	node.Next = cache.Head.Next
+
+	// 先搞 cache.Head.Next.Pre
 	cache.Head.Next.Pre = node
 	cache.Head.Next = node
 }

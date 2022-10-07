@@ -11,23 +11,43 @@ func quickSort(a []int) {
 	if len(a) <= 1 {
 		return
 	}
-	// axis是坐标值，pos是其最终应处位置
-	axis, pos := 0, len(a)-1
+	// idx 是坐标值，pos是其最终应处位置
+	idx, pos := 0, len(a)-1
 	for i := len(a) - 1; i >= 1; i-- {
-		if a[i] > a[axis] {
+		if a[i] > a[idx] {
 			// 如果当前值比坐标值要大，应该先把这个值和pos值进行交换，然后pos往前移
 			a[i], a[pos] = a[pos], a[i]
 			pos--
 		}
 	}
-	a[axis], a[pos] = a[pos], a[axis]
+	a[idx], a[pos] = a[pos], a[idx]
 
 	quickSort(a[:pos])
 	quickSort(a[pos+1:])
 }
 
 func main() {
-	a := []int{3, 2, 1, 4, 5, 6}
-	quickSort(a)
+	a := []int{76, 8, 2, 24, 36}
+	quickSorts(a)
 	fmt.Print(a)
+}
+
+func quickSorts(a []int) {
+	if len(a) < 1 {
+		return
+	}
+
+	idx, pos := 0, len(a)-1
+
+	for i := len(a) - 1; i >= 1; i-- {
+		if a[i] > a[idx] {
+			a[i], a[pos] = a[pos], a[i]
+			pos--
+		}
+	}
+
+	a[idx], a[pos] = a[pos], a[idx]
+
+	quickSorts(a[:pos])
+	quickSort(a[pos+1:])
 }

@@ -14,7 +14,7 @@ func Test_lengthOfLongestSubstring(t *testing.T) {
 		{
 			"test 1",
 			args{
-				"abcabcbb",
+				"dvdf",
 			},
 			3,
 		},

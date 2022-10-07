@@ -14,8 +14,8 @@ package _146_lru_cache
 //}
 //
 //// 初始化一个双链表节点
-//func initDLinkedNode(key, value int) *DLinkedNode {
-//	return &DLinkedNode{Key: key, Value: value}
+//func initDLinkedNode(Key, value int) *DLinkedNode {
+//	return &DLinkedNode{Key: Key, Value: value}
 //}
 //
 //func Constructor(capacity int) LRUCache {
@@ -30,26 +30,26 @@ package _146_lru_cache
 //	return l
 //}
 //
-//func (c *LRUCache) Get(key int) int {
+//func (c *LRUCache) Get(Key int) int {
 //	// 去map里查找，不存在返回 -1
-//	if _, ok := c.Cache[key]; !ok {
+//	if _, ok := c.Cache[Key]; !ok {
 //		return -1
 //	}
 //	// 存在时，把这个节点提到头部
-//	node := c.Cache[key]
+//	node := c.Cache[Key]
 //	c.moveToHead(node)
 //	// 返回节点的值
 //	return node.Value
 //}
 //
 //// Put ***要记得更新cache里面的值和删除node里面的值***
-//func (c *LRUCache) Put(key int, value int) {
+//func (c *LRUCache) Put(Key int, value int) {
 //	// 看lru里有没有这个key
-//	if _, ok := c.Cache[key]; !ok { // 如果没有
+//	if _, ok := c.Cache[Key]; !ok { // 如果没有
 //		// 初始化这个节点
-//		node := initDLinkedNode(key, value)
+//		node := initDLinkedNode(Key, value)
 //		// 把节点添加到map里面
-//		c.Cache[key] = node
+//		c.Cache[Key] = node
 //		// 把节点提到双向链表头部
 //		c.addToHead(node)
 //		// 如果size 大于 cap
@@ -61,7 +61,7 @@ package _146_lru_cache
 //		}
 //	} else { // 如果有
 //		// 获取这个key
-//		node := c.Cache[key]
+//		node := c.Cache[Key]
 //		// 对于这个key，赋值新的value
 //		node.Value = value
 //		// 把这个节点移到双向链表头部

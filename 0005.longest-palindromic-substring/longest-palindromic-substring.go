@@ -8,7 +8,7 @@ func longestPalindrome(s string) string {
 	for i := 0; i < len(s); i++ {
 		dp[i] = make([]bool, len(s))
 	}
-
+	// 从下往上，从左往右
 	for i := len(s) - 1; i >= 0; i-- {
 		for j := i; j < len(s); j++ {
 			if s[i] == s[j] {

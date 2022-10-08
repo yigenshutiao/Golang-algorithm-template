@@ -5,29 +5,28 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
-	// 这里应该初始化，不然后面的Next指针没法取
-	// 这里取指针类型的主要原因是后面代码有head = head.Next,
-	head := new(ListNode)
-	pHead := head
+func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+	dummy := new(ListNode)
+	head := dummy
 
-	for l1 != nil && l2 != nil {
-		if l1.Val <= l2.Val {
-			head.Next = l1
-			l1 = l1.Next
+	for list1 != nil && list2 != nil {
+		if list1.Val < list2.Val {
+			head.Next = list1
+			list1 = list1.Next
 		} else {
-			head.Next = l2
-			l2 = l2.Next
+			head.Next = list2
+			list2 = list2.Next
 		}
-		head = head.Next // head 是已经被确定顺序的节点，head.Next 是后续操作要被确定顺序的节点
+
+		head = head.Next
 	}
 
-	if l1 != nil {
-		head.Next = l1
+	if list1 != nil {
+		head.Next = list1
 	}
-	if l2 != nil {
-		head.Next = l2
+	if list2 != nil {
+		head.Next = list2
 	}
 
-	return pHead.Next
+	return dummy.Next
 }

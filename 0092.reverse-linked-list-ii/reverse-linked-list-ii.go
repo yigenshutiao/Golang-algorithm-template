@@ -26,6 +26,7 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 	}
 
 	rightNode := pre
+	// 得到右边的节点
 	for i := 0; i < right-left+1; i++ {
 		rightNode = rightNode.Next
 	}

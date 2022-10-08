@@ -25,6 +25,7 @@ func threeSum(nums []int) [][]int {
 				res = append(res, []int{nums[i], nums[left], nums[right]})
 				// 注意标定变量
 				n1, n2 := nums[left], nums[right]
+				// 排除相同的数字
 				for left < right && nums[left] == n1 {
 					left++
 				}

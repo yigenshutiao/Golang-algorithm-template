@@ -15,6 +15,7 @@ func search(nums []int, target int) int {
 		if nums[0] <= nums[mid] {
 			// 左半部分有序
 			if target >= nums[0] && target < nums[mid] {
+				// 想办法先移动右坐标
 				r = mid - 1
 			} else {
 				l = mid + 1
@@ -22,6 +23,7 @@ func search(nums []int, target int) int {
 		} else {
 			// 右半部分有序
 			if target <= nums[len(nums)-1] && target > nums[mid] {
+				// 想办法移动左坐标
 				l = mid + 1
 			} else {
 				r = mid - 1

@@ -25,3 +25,28 @@ func isSymmetric(root *TreeNode) bool {
 
 	return dfs(root.Left, root.Right)
 }
+
+func isSymmetricF(root *TreeNode) bool {
+	var isSync func(left, right *TreeNode) bool
+	isSync = func(left, right *TreeNode) bool {
+		if left == nil && right != nil {
+			return false
+		}
+
+		if left != nil && right == nil {
+			return false
+		}
+
+		if left == nil && right == nil {
+			return true
+		}
+
+		if left.Val == right.Val {
+			return isSync(left.Left, right.Right) && isSync(left.Right, right.Left)
+		} else {
+			return false
+		}
+	}
+
+	return isSync(root.Left, root.Right)
+}

@@ -34,20 +34,15 @@ func flattenFk(root *TreeNode) {
 	if root == nil {
 		return
 	}
-
 	flatten(root.Left)
 	flatten(root.Right)
 
-	left := root.Left
-	right := root.Right
-
+	//postorder
+	left, right := root.Left, root.Right
 	root.Left = nil
 	root.Right = left
-
-	p := root
-	for p.Right != nil {
-		p = p.Right
+	for root.Right != nil {
+		root = root.Right
 	}
-
-	p.Right = right
+	root.Right = right
 }

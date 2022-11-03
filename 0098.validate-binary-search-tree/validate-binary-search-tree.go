@@ -31,6 +31,7 @@ func isValidBSTTraverse(root *TreeNode) bool {
 func isValidBST(root *TreeNode) bool {
 	var dfs func(node *TreeNode) bool
 	var pre *TreeNode
+	// 中序遍历思路，pre是root的前一个节点
 	dfs = func(node *TreeNode) bool {
 		if node == nil {
 			return true

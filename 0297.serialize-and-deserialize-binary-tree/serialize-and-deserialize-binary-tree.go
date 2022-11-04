@@ -1,6 +1,7 @@
 package _297_serialize_and_deserialize_binary_tree
 
 import (
+	"fmt"
 	"github.com/yigenshutiao/Golang-algorithm-template/util"
 	"strconv"
 	"strings"
@@ -26,7 +27,7 @@ func (this *Codec) serialize(root *TreeNode) string {
 			return
 		}
 
-		res += strconv.Itoa(node.Val) + ","
+		res += fmt.Sprintf("%+v", node.Val) + ","
 		dfs(node.Left)
 		dfs(node.Right)
 	}

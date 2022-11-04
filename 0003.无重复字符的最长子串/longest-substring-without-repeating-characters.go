@@ -29,3 +29,29 @@ func lengthOfLongestSubstring(s string) int {
 
 	return res
 }
+
+func lengthOfLongestSubstrings(s string) int {
+	left, right := 0, 0
+	var res int
+
+	info := make(map[byte]int)
+
+	for left < len(s) {
+		// 节点right 往右走，一直走到有重复字符串
+		for right < len(s) {
+			if info[s[right]] < 1 {
+				info[s[right]]++
+				right++
+			}
+		}
+
+		if right-left > res {
+			res = right - left
+		}
+
+		info[s[left]]--
+		left++
+	}
+
+	return res
+}

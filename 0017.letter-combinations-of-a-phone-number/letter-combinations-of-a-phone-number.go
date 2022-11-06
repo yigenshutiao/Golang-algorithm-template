@@ -24,7 +24,8 @@ func letterCombinations(digits string) []string {
 			return
 		}
 
-		for _, v := range digMap[digits[curIdx]] {
+		s := digits[curIdx]
+		for _, v := range digMap[s] {
 			cur = cur + string(v)
 			dfs(curIdx+1, cur, res)
 			cur = cur[:len(cur)-1]

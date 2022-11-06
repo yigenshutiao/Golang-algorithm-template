@@ -4,29 +4,30 @@ import "fmt"
 
 func permute(nums []int) [][]int {
 	var res [][]int
-	used := make([]bool, len(nums))
-	tmp := make([]int, len(nums))
 
-	var dfs func(cur int, nums []int, used []bool, tmp []int, res *[][]int)
-
-	dfs = func(cur int, nums []int, used []bool, tmp []int, res *[][]int) {
-		if cur == len(nums) {
+	var dfs func(cur []int, used []bool)
+	dfs = func(cur []int, used []bool) {
+		if len(cur) == len(nums) {
 			t := make([]int, len(nums))
-			copy(t, tmp)
-			*res = append(*res, t)
+			copy(t, cur)
+			res = append(res, t)
+			return
 		}
 
 		for i := 0; i < len(nums); i++ {
 			if !used[i] {
-				tmp[cur] = nums[i]
 				used[i] = true
-				dfs(cur+1, nums, used, tmp, res)
+				cur = append(cur, nums[i])
+				dfs(cur, used)
+				cur = cur[:len(cur)-1]
 				used[i] = false
 			}
+
 		}
 	}
 
-	dfs(0, nums, used, tmp, &res)
+	used := make([]bool, len(nums))
+	dfs([]int{}, used)
 
 	return res
 }

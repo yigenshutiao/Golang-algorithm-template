@@ -95,7 +95,6 @@ func removeInvalidParenthese(s string) []string {
 			if cur[i] == '(' && leftRemove > 0 {
 				dfs(i, leftRemove-1, rightRemove, cur[:i]+cur[i+1:], res)
 			}
-
 			if cur[i] == ')' && rightRemove > 0 {
 				dfs(i, leftRemove, rightRemove-1, cur[:i]+cur[i+1:], res)
 			}

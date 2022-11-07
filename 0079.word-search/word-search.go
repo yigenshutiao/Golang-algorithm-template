@@ -45,3 +45,54 @@ func exist(board [][]byte, word string) bool {
 
 	return false
 }
+
+func exists(board [][]byte, word string) bool {
+
+	if len(board) < 1 {
+		return false
+	}
+
+	used := make([][]bool, len(board))
+
+	for i := 0; i < len(used); i++ {
+		used[i] = make([]bool, len(board[0]))
+	}
+
+	var dfs func(i, j, cur int) bool
+	dfs = func(i, j, cur int) bool {
+		// 返回条件
+		if cur == len(word) {
+			return true
+		}
+		// 剪枝
+		if i < 0 || i >= len(board) || j < 0 || j >= len(board[0]) {
+			return false
+		}
+
+		if used[i][j] == true || board[i][j] != word[cur] {
+			return false
+		}
+
+		used[i][j] = true
+
+		cu := dfs(i+1, j, cur+1) || dfs(i-1, j, cur+1) || dfs(i, j-1, cur+1) || dfs(i, j+1, cur+1)
+		if cu {
+			return true
+		} else {
+			used[i][j] = false
+			return false
+		}
+	}
+
+	for i := 0; i < len(board); i++ {
+		for j := 0; j < len(board[0]); j++ {
+			if board[i][j] == word[0] {
+				if dfs(i, j, 0) {
+					return true
+				}
+			}
+		}
+	}
+
+	return false
+}

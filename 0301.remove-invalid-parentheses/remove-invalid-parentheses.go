@@ -61,3 +61,49 @@ func valid(ss string) bool {
 
 	return cnt == 0
 }
+
+func removeInvalidParenthese(s string) []string {
+	var res []string
+	// 先算出要删除的括号
+	var leftRemove, rightRemove int
+
+	for i := 0; i < len(s); i++ {
+		if s[i] == '(' {
+			leftRemove++
+		}
+		if s[i] == ')' && leftRemove == 0 {
+			rightRemove++
+		} else if s[i] == ')' && leftRemove > 0 {
+			leftRemove--
+		}
+	}
+
+	// 删除括号，看是否有效
+	var dfs func(idx int, leftRemove int, rightRemove int, cur string, res *[]string)
+
+	dfs = func(idx int, leftRemove int, rightRemove int, cur string, res *[]string) {
+		if leftRemove == 0 && rightRemove == 0 {
+			if valid(cur) {
+				*res = append(*res, cur)
+			}
+			return
+		}
+		for i := idx; i < len(cur); i++ {
+			if i > idx && cur[i] == cur[i-1] {
+				continue
+			}
+			if cur[i] == '(' && leftRemove > 0 {
+				dfs(i, leftRemove-1, rightRemove, cur[:i]+cur[i+1:], res)
+			}
+
+			if cur[i] == ')' && rightRemove > 0 {
+				dfs(i, leftRemove, rightRemove-1, cur[:i]+cur[i+1:], res)
+			}
+		}
+	}
+
+	dfs(0, leftRemove, rightRemove, s, &res)
+
+	// 返回结果
+	return res
+}

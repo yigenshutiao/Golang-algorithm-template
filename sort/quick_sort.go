@@ -26,7 +26,7 @@ func quickSort(a []int) {
 	quickSort(a[pos+1:])
 }
 
-func main() {
+func main11() {
 	a := []int{76, 8, 2, 24, 36}
 	quickSorts(a)
 	fmt.Print(a)

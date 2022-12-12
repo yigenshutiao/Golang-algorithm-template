@@ -7,6 +7,8 @@ import (
 type ListNode = util.ListNode
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+
+	// 记住要起一个新链表即可
 	dummy := new(ListNode)
 	pre := dummy
 

@@ -19,6 +19,7 @@ func combinationSum(candidates []int, target int) [][]int {
 		// 当前处理函数
 		for i := idx; i < len(candidates); i++ {
 			cur = append(cur, candidates[i])
+			// 只需要一个横坐标即可，不需要传入纵坐标
 			dfs(cur, target-candidates[i], i)
 			cur = cur[:len(cur)-1]
 		}

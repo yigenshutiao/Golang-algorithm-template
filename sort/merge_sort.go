@@ -22,6 +22,7 @@ func mergeSort(arr []int) {
 	// x是左序列的游标, y是右序列的游标, idx是merged数组的游标, merged 是本次合并后的res存放处
 	x, y, idx, merged := 0, 0, 0, make([]int, len(arr))
 	for x < len(left) && y < len(right) {
+		// 要比较的是left和right
 		if left[x] < right[y] {
 			merged[idx] = left[x]
 			x++
@@ -32,6 +33,7 @@ func mergeSort(arr []int) {
 			idx++
 		}
 	}
+
 	// 把左序列剩下的元素放到merged中
 	for x < len(left) {
 		merged[idx] = left[x]
@@ -47,7 +49,27 @@ func mergeSort(arr []int) {
 	copy(arr, merged)
 }
 
-func main1() {
+func merge(nums []int) {
+	if len(nums) <= 1 {
+		return
+	}
+
+	left, right := nums[:len(nums)/2], nums[len(nums)/2:]
+
+	merge(left)
+	merge(right)
+
+	x, y, idx, cur := 0, 0, 0, make([]int, len(nums))
+	for x < len(left) && x < len(right) {
+		if left[x] < right[y] {
+			cur[idx] = left[x]
+			x++
+			idx++
+		}
+	}
+}
+
+func main() {
 	//a := []int{5, 2, 3, 7, 6, 9, 0, 8, 4, 1}
 	a := []int{4, 3, 2, 1}
 	mergeSort(a)

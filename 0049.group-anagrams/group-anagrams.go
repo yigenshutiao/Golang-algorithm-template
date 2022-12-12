@@ -2,7 +2,7 @@ package _049_group_anagrams
 
 func groupAnagrams(strs []string) [][]string {
 	var res [][]string
-	// 这个特殊的数据结构需要记忆一下...
+	// 需要一个极其难记住的数据结构...
 	wordCnt := map[[26]int][]string{}
 	for _, s := range strs {
 		cnt := [26]int{}

@@ -9,6 +9,7 @@ func minDistance(word1 string, word2 string) int {
 		dp[i] = make([]int, n+1)
 	}
 
+	// 初始化：下标i的word要变成 空，最少的编辑次数应为 i
 	for i := 0; i <= m; i++ {
 		dp[i][0] = i
 	}

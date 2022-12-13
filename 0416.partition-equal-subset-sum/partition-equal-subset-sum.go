@@ -16,6 +16,7 @@ func canPartition(nums []int) bool {
 
 	for i := 0; i < len(nums); i++ {
 		for j := target; j >= nums[i]; j-- {
+			// dp[j] : 背包总容量是j，放入物品后，背包的最大容量是dp[j]
 			dp[j] = max(dp[j], dp[j-nums[i]]+nums[i])
 		}
 	}

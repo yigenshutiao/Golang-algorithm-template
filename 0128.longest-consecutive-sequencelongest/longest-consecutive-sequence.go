@@ -20,6 +20,7 @@ func longestConsecutive(nums []int) int {
 					t++
 					cur++
 				} else {
+					// 不存在就退出循环...
 					break
 				}
 			}

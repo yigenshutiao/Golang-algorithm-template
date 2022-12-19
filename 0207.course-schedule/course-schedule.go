@@ -1,6 +1,7 @@
 package _207_course_schedule
 
 func canFinish(numCourses int, prerequisites [][]int) bool {
+	// 依赖出度明细和入度值
 	// 记录每个元素的出度
 	graph := make([][]int, numCourses)
 	// 记录从 0 到 n-1，所有元素的入度

@@ -14,7 +14,7 @@ func findRepeatNumberMap(nums []int) int {
 	return -1
 }
 
-// findRepeatNumber nums[i] 需要为 i
+// findRepeatNumber nums[i] 需要为 i，一直交换，直到 nums[i]和i相等为止
 func findRepeatNumber(nums []int) int {
 
 	for i := 0; i < len(nums); {

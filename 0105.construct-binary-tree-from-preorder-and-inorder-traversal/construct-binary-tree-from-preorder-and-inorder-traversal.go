@@ -17,7 +17,7 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 	// 递归构造树
 	root := &TreeNode{
 		Val:   preorder[0],
-		Left:  buildTree(preorder[1:idx+1], inorder[:idx+1]),
+		Left:  buildTree(preorder[1:idx+1], inorder[:idx]),
 		Right: buildTree(preorder[idx+1:], inorder[idx+1:]),
 	}
 	return root

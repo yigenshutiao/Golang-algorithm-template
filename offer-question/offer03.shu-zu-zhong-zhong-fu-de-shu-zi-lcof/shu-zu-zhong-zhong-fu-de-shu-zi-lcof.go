@@ -17,7 +17,7 @@ func findRepeatNumberMap(nums []int) int {
 // findRepeatNumber nums[i] 需要为 i
 func findRepeatNumber(nums []int) int {
 
-	for i := 0; i < len(nums); i++ {
+	for i := 0; i < len(nums); {
 		if nums[i] == i {
 			i++
 			continue

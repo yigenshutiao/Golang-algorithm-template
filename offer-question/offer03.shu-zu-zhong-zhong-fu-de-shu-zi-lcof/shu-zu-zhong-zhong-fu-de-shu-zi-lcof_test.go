@@ -14,9 +14,9 @@ func Test_findRepeatNumber(t *testing.T) {
 		{
 			"test1",
 			args{
-				nums: []int{2, 3, 1, 0, 2, 5, 3},
+				nums: []int{3, 4, 2, 1, 1, 0},
 			},
-			2,
+			1,
 		},
 	}
 	for _, tt := range tests {

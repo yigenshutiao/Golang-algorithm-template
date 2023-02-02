@@ -21,7 +21,7 @@ func Test_traps(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := trap(tt.args.height); got != tt.want {
+			if got := trapDP(tt.args.height); got != tt.want {
 				t.Errorf("traps() = %v, want %v", got, tt.want)
 			}
 		})

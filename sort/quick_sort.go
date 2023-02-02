@@ -51,3 +51,22 @@ func quickSorts(a []int) {
 	quickSorts(a[:pos])
 	quickSort(a[pos+1:])
 }
+
+func quick(nums []int) {
+	if len(nums) <= 1 {
+		return
+	}
+
+	idx, pos := 0, len(nums)-1
+	for i := len(nums) - 1; i >= 1; i-- {
+		if nums[i] > nums[idx] {
+			nums[i], nums[pos] = nums[pos], nums[i]
+			pos--
+		}
+	}
+
+	nums[idx], nums[pos] = nums[pos], nums[idx]
+
+	quick(nums[:pos])
+	quick(nums[pos+1:])
+}

@@ -64,5 +64,5 @@ func permutes(nums []int) [][]int {
 }
 
 func main() {
-	fmt.Println(permutes([]int{1, 2, 3}))
+	fmt.Println(permute([]int{1, 2, 3}))
 }

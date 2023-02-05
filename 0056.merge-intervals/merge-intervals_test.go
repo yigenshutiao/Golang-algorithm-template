@@ -17,9 +17,9 @@ func Test_merge(t *testing.T) {
 		{
 			"test 1",
 			args{
-				[][]int{{1, 4}, {1, 5}},
+				[][]int{{1, 3}, {2, 6}, {8, 10}, {15, 18}},
 			},
-			[][]int{{1, 5}},
+			[][]int{{1, 6}, {8, 10}, {15, 18}},
 		},
 	}
 	for _, tt := range tests {

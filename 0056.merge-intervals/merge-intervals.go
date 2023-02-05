@@ -1,5 +1,7 @@
 package _056_merge_intervals
 
+import "sort"
+
 func merge(intervals [][]int) [][]int {
 	if len(intervals) <= 1 {
 		return intervals
@@ -7,12 +9,16 @@ func merge(intervals [][]int) [][]int {
 
 	var res [][]int
 	// 先把 intervals进行排序，让他们以第一个元素的大小排序
-	quickSort(intervals)
+	sort.Slice(intervals, func(i, j int) bool {
+		return intervals[i][0] < intervals[j][0]
+	})
+	//quickSort(intervals)
 
 	cur := intervals[0]
 	for i := 1; i < len(intervals); i++ {
 		// 如果前者的结尾 >= 后者的开头, 需要合并, 进行合并
 		if cur[1] >= intervals[i][0] {
+			// 这里要看二者的末尾谁大，取大的末尾
 			if cur[1] < intervals[i][1] {
 				cur[1] = intervals[i][1]
 			}

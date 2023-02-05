@@ -25,7 +25,7 @@ func canJumps(nums []int) bool {
 			return false
 		}
 
-		// i + num[i]： 最远能到达的下标位置
+		// i + num[i]：已经跳的位置(i), 还能跳多远(num[i]), 和为最远能到达的距离
 		k = max(k, i+nums[i])
 	}
 

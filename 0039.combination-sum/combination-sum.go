@@ -4,6 +4,7 @@ func combinationSum(candidates []int, target int) [][]int {
 	var res [][]int
 
 	var dfs func(cur []int, target int, idx int)
+
 	dfs = func(cur []int, target int, idx int) {
 		if target == 0 {
 			tmp := make([]int, len(cur))
